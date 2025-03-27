@@ -90,6 +90,50 @@
             <h2>Manifestation</h2>
             <p>As you complete this chakra journey, you align your entire energy system for powerful manifestation. Your visions become reality when all chakras work in harmony.</p>
         </section>
+        <!-- Meditation Section -->
+<section class="meditation">
+  <h2>Personal Meditation Guide</h2>
+  <p>
+    While laying down, closing your eyes. Focus on your breathing and create an 
+    awareness within your body of where your awareness is. Bring your 
+    awareness to your brain if isn't there already. Become aware of what you are
+    seeing in your 3rd eye. What are you wanting to express? Embracing the 
+    feeling that arises within you, begin to feel confident with your desires. 
+    Knowing you can pursue them with passion. Now ground this feeling within 
+    you as a true foundation al reality.
+  </p>
+  
+  <!-- Timer Feature -->
+  <div class="timer-container">
+    <h3>Meditation Timer</h3>
+    <p>Set meditation timer: <span id="minutes">5</span> minutes</p>
+    <div class="timer-controls">
+      <button onclick="adjustTime(-1)">-</button>
+      <button onclick="startTimer()">Start</button>
+      <button onclick="adjustTime(1)">+</button>
+    </div>
+    <p id="timer-display"></p>
+  </div>
+  
+  <!-- Recording Feature -->
+  <div class="recording-section">
+    <h3>Record Your Meditation Experience</h3>
+    <p>Use this tool to record your thoughts after meditation:</p>
+    
+    <div class="controls">
+      <button id="recordButton">Start Recording</button>
+      <button id="stopButton" disabled>Stop Recording</button>
+      <button id="playButton" disabled>Play Recording</button>
+    </div>
+    
+    <div class="recording-status">
+      <p id="recordingStatus">Not recording</p>
+      <div id="recordingTimer"></div>
+    </div>
+    
+    <audio id="recordedAudio" controls style="display:none;"></audio>
+  </div>
+</section>
     </main>
     
     <footer>
