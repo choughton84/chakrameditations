@@ -134,6 +134,104 @@
     <audio id="recordedAudio" controls style="display:none;"></audio>
   </div>
 </section>
+        <!-- Timer Script -->
+<script>
+  let meditationMinutes = 5;
+  let timerInterval;
+  
+  function adjustTime(change) {
+    meditationMinutes = Math.max(1, meditationMinutes + change);
+    document.getElementById('minutes').textContent = meditationMinutes;
+  }
+  
+  function startTimer() {
+    clearInterval(timerInterval);
+    let seconds = meditationMinutes * 60;
+    
+    document.getElementById('timer-display').textContent = 
+      `Meditation in progress: ${Math.floor(seconds/60)}:${(seconds%60).toString().padStart(2,'0')}`;
+    
+    timerInterval = setInterval(() => {
+      seconds--;
+      if (seconds <= 0) {
+        clearInterval(timerInterval);
+        document.getElementById('timer-display').textContent = "Meditation complete";
+        alert("Your meditation is complete");
+        return;
+      }
+      document.getElementById('timer-display').textContent = 
+        `Meditation in progress: ${Math.floor(seconds/60)}:${(seconds%60).toString().padStart(2,'0')}`;
+    }, 1000);
+  }
+</script>
+
+<!-- Recording Script -->
+<script>
+  // Audio recording functionality
+  let mediaRecorder;
+  let audioChunks = [];
+  let recordingTimer;
+  let seconds = 0;
+  
+  document.getElementById('recordButton').addEventListener('click', async () => {
+    audioChunks = [];
+    
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      mediaRecorder = new MediaRecorder(stream);
+      
+      mediaRecorder.ondataavailable = (event) => {
+        audioChunks.push(event.data);
+      };
+      
+      mediaRecorder.onstop = () => {
+        const audioBlob = new Blob(audioChunks, { type: 'audio/mp3' });
+        const audioUrl = URL.createObjectURL(audioBlob);
+        const audio = document.getElementById('recordedAudio');
+        audio.src = audioUrl;
+        audio.style.display = 'block';
+      };
+      
+      // Start recording
+      mediaRecorder.start();
+      document.getElementById('recordingStatus').textContent = "Recording...";
+      document.getElementById('recordButton').disabled = true;
+      document.getElementById('stopButton').disabled = false;
+      document.getElementById('playButton').disabled = true;
+      
+      // Start timer
+      seconds = 0;
+      clearInterval(recordingTimer);
+      recordingTimer = setInterval(() => {
+        seconds++;
+        const minutes = Math.floor(seconds / 60);
+        const remainingSeconds = seconds % 60;
+        document.getElementById('recordingTimer').textContent = 
+          `${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
+      }, 1000);
+      
+    } catch (err) {
+      console.error('Error accessing microphone:', err);
+      alert('Could not access your microphone. Please check permissions.');
+    }
+  });
+  
+  document.getElementById('stopButton').addEventListener('click', () => {
+    if (mediaRecorder && mediaRecorder.state !== 'inactive') {
+      mediaRecorder.stop();
+      clearInterval(recordingTimer);
+      document.getElementById('recordingStatus').textContent = "Recording stopped";
+      document.getElementById('recordButton').disabled = false;
+      document.getElementById('stopButton').disabled = true;
+      document.getElementById('playButton').disabled = false;
+    }
+  });
+  
+  document.getElementById('playButton').addEventListener('click', () => {
+    const audio = document.getElementById('recordedAudio');
+    audio.play();
+  });
+</script>
     </main>
     
     <footer>
