@@ -3,323 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chakra Healing Affirmation Journal</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            color: #333;
-            min-height: 100vh;
-        }
-        
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        
-        header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        
-        h1 {
-            color: #6a0dad;
-            margin-bottom: 10px;
-        }
-        
-        .chakra-selector {
-            margin-bottom: 20px;
-            text-align: center;
-        }
-        
-        select, button {
-            padding: 10px 15px;
-            font-size: 16px;
-            border-radius: 5px;
-            border: 1px solid #ddd;
-        }
-        
-        button {
-            background-color: #6a0dad;
-            color: white;
-            border: none;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        
-        button:hover {
-            background-color: #4b0082;
-        }
-        
-        .meditation-container {
-            background-color: white;
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-        }
-        
-        .timer {
-            text-align: center;
-            font-size: 24px;
-            margin: 20px 0;
-        }
-        
-        .meditation-text {
-            font-size: 18px;
-            line-height: 1.8;
-            margin-bottom: 20px;
-        }
-        
-        .journal-container {
-            background-color: white;
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        
-        textarea {
-            width: 100%;
-            height: 200px;
-            padding: 10px;
-            font-size: 16px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            resize: vertical;
-            margin-bottom: 15px;
-        }
-        
-        .chakra-info {
-            margin-top: 20px;
-            padding: 15px;
-            background-color: rgba(255, 255, 255, 0.7);
-            border-radius: 5px;
-        }
-        
-        .hidden {
-            display: none;
-        }
-        
-        .steps-container {
-            margin-top: 20px;
-        }
-        
-        .step {
-            margin-bottom: 15px;
-            padding: 10px;
-            background-color: rgba(255, 255, 255, 0.7);
-            border-radius: 5px;
-        }
-    </style>
+    <title>Chakra Healing Affirmations</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Chakra Healing Affirmation Journal</h1>
-            <p>Select a chakra, meditate, and journal your experience</p>
-        </header>
+    <header>
+        <h1>Chakra Healing Affirmation Journal</h1>
+        <p class="subtitle">A guide to spiritual alignment and manifestation</p>
+    </header>
+    
+    <main>
+        <section class="meditation">
+            <h2>Personal Meditation Guide</h2>
+            <div class="meditation-content">
+                <p>While laying down, closing your eyes. Focus on your breathing and create an 
+                awareness within your body of where your awareness is. Bring your 
+                awareness to your brain if isn't there already. Become aware of what you are
+                seeing in your 3rd eye. What are you wanting to express? Embracing the 
+                feeling that arises within you, begin to feel confident with your desires. 
+                Knowing you can pursue them with passion. Now ground this feeling within 
+                you as a true foundation of reality.</p>
+            </div>
+        </section>
         
-        <div class="chakra-selector">
-            <select id="chakra-select">
-                <option value="">Select a Chakra</option>
-                <option value="crown">Crown Chakra (Sahasrara)</option>
-                <option value="third-eye">Third Eye Chakra (Ajna)</option>
-                <option value="throat">Throat Chakra (Vishuddha)</option>
-                <option value="heart">Heart Chakra (Anahata)</option>
-                <option value="solar-plexus">Solar Plexus Chakra (Manipura)</option>
-                <option value="sacral">Sacral Chakra (Svadhisthana)</option>
-                <option value="root">Root Chakra (Muladhara)</option>
-            </select>
+        <section class="chakra-steps">
+            <h2>Chakra Awareness Journey</h2>
             
-            <input type="number" id="meditation-minutes" min="1" max="60" value="10" placeholder="Minutes">
-            <button id="start-meditation">Start Meditation</button>
-        </div>
-        
-        <div class="meditation-container hidden" id="meditation-section">
-            <div class="timer" id="timer">10:00</div>
-            <div class="meditation-text" id="meditation-text">
-                <p>While laying down, closing your eyes. Focus on your breathing and create an awareness within your body of where your awareness is. Bring your awareness to your brain if isn't there already. Become aware of what you are seeing in your 3rd eye. What are you wanting to express? Embracing the feeling that arises within you, begin to feel confident with your desires. Knowing you can pursue them with passion. Now ground this feeling within you as a true foundational reality.</p>
+            <div class="chakra" id="crown">
+                <h3>Creating an Awareness</h3>
+                <p class="chakra-description">Connect with your crown chakra to create spiritual awareness and open yourself to divine guidance.</p>
+                <div class="affirmation-box">
+                    <p class="affirmation">I am connected to the divine wisdom of the universe.</p>
+                </div>
             </div>
             
-            <div class="steps-container">
-                <h3>Meditation Steps:</h3>
-                <div class="step">1. CREATING AN AWARENESS</div>
-                <div class="step">2. RECOGNIZING WHAT YOU ARE SEEING</div>
-                <div class="step">3. EXPRESSING WHAT YOU ARE FEELING</div>
-                <div class="step">4. EMBRACING THE FEELING AS YOUR OWN</div>
-                <div class="step">5. FEELING CONFIDENT IN YOUR STRENGTH</div>
-                <div class="step">6. STABILE WITHIN YOUR DESIRES/PASSION</div>
-                <div class="step">7. KNOWING THIS IS GROUNDED IN REALITY</div>
+            <div class="chakra" id="third-eye">
+                <h3>Recognizing What You Are Seeing</h3>
+                <p class="chakra-description">Activate your third eye chakra to recognize intuitive visions and insights.</p>
+                <div class="affirmation-box">
+                    <p class="affirmation">I trust what I see with my inner vision.</p>
+                </div>
             </div>
             
-            <button id="end-meditation">End Meditation</button>
-        </div>
-        
-        <div class="chakra-info hidden" id="chakra-info">
-            <!-- Chakra information will be displayed here -->
-        </div>
-        
-        <div class="journal-container hidden" id="journal-section">
-            <h2>Journal Your Experience</h2>
-            <textarea id="journal-entry" placeholder="Write about your meditation experience, insights, feelings, and any visions you received..."></textarea>
-            <button id="save-journal">Save Entry</button>
-        </div>
-    </div>
-
-    <script>
-        // DOM Elements
-        const chakraSelect = document.getElementById('chakra-select');
-        const meditationMinutes = document.getElementById('meditation-minutes');
-        const startMeditationBtn = document.getElementById('start-meditation');
-        const endMeditationBtn = document.getElementById('end-meditation');
-        const saveJournalBtn = document.getElementById('save-journal');
-        const meditationSection = document.getElementById('meditation-section');
-        const journalSection = document.getElementById('journal-section');
-        const timerDisplay = document.getElementById('timer');
-        const chakraInfo = document.getElementById('chakra-info');
-        
-        // Chakra information
-        const chakraData = {
-            'crown': {
-                color: '#a020f0', // Purple
-                element: 'Thought',
-                description: 'The Crown Chakra represents spiritual connection, higher consciousness, and enlightenment. It connects us to our higher self and divine wisdom.'
-            },
-            'third-eye': {
-                color: '#4b0082', // Indigo
-                element: 'Light',
-                description: 'The Third Eye Chakra is associated with intuition, imagination, and the ability to see beyond the physical world. It helps us trust our inner wisdom.'
-            },
-            'throat': {
-                color: '#1e90ff', // Blue
-                element: 'Sound',
-                description: 'The Throat Chakra governs communication, self-expression, and speaking your truth. It helps us communicate clearly and listen effectively.'
-            },
-            'heart': {
-                color: '#32cd32', // Green
-                element: 'Air',
-                description: 'The Heart Chakra is the center of love, compassion, and harmony. It bridges the lower and upper chakras, integrating physical and spiritual aspects.'
-            },
-            'solar-plexus': {
-                color: '#ffd700', // Yellow
-                element: 'Fire',
-                description: 'The Solar Plexus Chakra relates to personal power, confidence, and self-esteem. It governs willpower and helps us manifest our intentions.'
-            },
-            'sacral': {
-                color: '#ff8c00', // Orange
-                element: 'Water',
-                description: 'The Sacral Chakra is connected to creativity, pleasure, and emotional well-being. It helps us embrace change and go with the flow of life.'
-            },
-            'root': {
-                color: '#ff0000', // Red
-                element: 'Earth',
-                description: 'The Root Chakra is the foundation of our energy system, representing stability, security, and our basic needs. It grounds us to the earth and our physical existence.'
-            }
-        };
-        
-        let timer;
-        let timeRemaining;
-        
-        // Start meditation
-        startMeditationBtn.addEventListener('click', () => {
-            const selectedChakra = chakraSelect.value;
-            const minutes = parseInt(meditationMinutes.value);
+            <div class="chakra" id="throat">
+                <h3>Expressing What You Are Feeling</h3>
+                <p class="chakra-description">Open your throat chakra to authentically express your inner truth.</p>
+                <div class="affirmation-box">
+                    <p class="affirmation">I express my feelings with clarity and confidence.</p>
+                </div>
+            </div>
             
-            if (!selectedChakra) {
-                alert('Please select a chakra');
-                return;
-            }
+            <div class="chakra" id="heart">
+                <h3>Embracing the Feeling as Your Own</h3>
+                <p class="chakra-description">Center in your heart chakra to fully embrace and integrate your emotions.</p>
+                <div class="affirmation-box">
+                    <p class="affirmation">I lovingly embrace all my feelings as part of my authentic self.</p>
+                </div>
+            </div>
             
-            if (isNaN(minutes) || minutes < 1 || minutes > 60) {
-                alert('Please enter a valid meditation time (1-60 minutes)');
-                return;
-            }
+            <div class="chakra" id="solar-plexus">
+                <h3>Feeling Confident in Your Strength</h3>
+                <p class="chakra-description">Empower your solar plexus chakra to build confidence and personal power.</p>
+                <div class="affirmation-box">
+                    <p class="affirmation">I am confident in my strength and abilities.</p>
+                </div>
+            </div>
             
-            // Show meditation section
-            meditationSection.classList.remove('hidden');
+            <div class="chakra" id="sacral">
+                <h3>Stable Within Your Desires/Passion</h3>
+                <p class="chakra-description">Balance your sacral chakra to stabilize your creative energy and passion.</p>
+                <div class="affirmation-box">
+                    <p class="affirmation">My desires flow with purpose and passion.</p>
+                </div>
+            </div>
             
-            // Display chakra information
-            displayChakraInfo(selectedChakra);
-            
-            // Start timer
-            startTimer(minutes);
-        });
+            <div class="chakra" id="root">
+                <h3>Knowing This is Grounded in Reality</h3>
+                <p class="chakra-description">Strengthen your root chakra to ground your spiritual insights into physical reality.</p>
+                <div class="affirmation-box">
+                    <p class="affirmation">I am grounded in reality and manifest my spiritual insights.</p>
+                </div>
+            </div>
+        </section>
         
-        // End meditation
-        endMeditationBtn.addEventListener('click', () => {
-            clearInterval(timer);
-            meditationSection.classList.add('hidden');
-            journalSection.classList.remove('hidden');
-        });
-        
-        // Save journal entry
-        saveJournalBtn.addEventListener('click', () => {
-            const journalEntry = document.getElementById('journal-entry').value;
-            const selectedChakra = chakraSelect.value;
-            
-            if (journalEntry.trim() === '') {
-                alert('Please write something in your journal before saving');
-                return;
-            }
-            
-            // Save to local storage
-            const entries = JSON.parse(localStorage.getItem('chakraJournalEntries') || '[]');
-            entries.push({
-                chakra: selectedChakra,
-                date: new Date().toISOString(),
-                entry: journalEntry
-            });
-            
-            localStorage.setItem('chakraJournalEntries', JSON.stringify(entries));
-            alert('Journal entry saved successfully!');
-            
-            // Reset form
-            document.getElementById('journal-entry').value = '';
-            journalSection.classList.add('hidden');
-        });
-        
-        // Display chakra information
-        function displayChakraInfo(chakra) {
-            if (chakraData[chakra]) {
-                const data = chakraData[chakra];
-                chakraInfo.innerHTML = `
-                    <h3>${chakra.charAt(0).toUpperCase() + chakra.slice(1)} Chakra</h3>
-                    <p><strong>Color:</strong> ${data.color}</p>
-                    <p><strong>Element:</strong> ${data.element}</p>
-                    <p>${data.description}</p>
-                `;
-                chakraInfo.style.borderLeft = `5px solid ${data.color}`;
-                chakraInfo.classList.remove('hidden');
-            }
-        }
-        
-        // Timer function
-        function startTimer(minutes) {
-            timeRemaining = minutes * 60;
-            updateTimerDisplay();
-            
-            timer = setInterval(() => {
-                timeRemaining--;
-                updateTimerDisplay();
-                
-                if (timeRemaining <= 0) {
-                    clearInterval(timer);
-                    meditationSection.classList.add('hidden');
-                    journalSection.classList.remove('hidden');
-                }
-            }, 1000);
-        }
-        
-        // Update timer display
-        function updateTimerDisplay() {
-            const minutes = Math.floor(timeRemaining / 60);
-            const seconds = timeRemaining % 60;
-            timerDisplay.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-        }
-    </script>
+        <section class="manifestation">
+            <h2>Manifestation</h2>
+            <p>As you complete this chakra journey, you align your entire energy system for powerful manifestation. Your visions become reality when all chakras work in harmony.</p>
+        </section>
+    </main>
+    
+    <footer>
+        <p>Created with love by Cristina Houghton</p>
+    </footer>
 </body>
 </html>
