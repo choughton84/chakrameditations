@@ -108,9 +108,12 @@
     <h3>Meditation Timer</h3>
     <p>Set meditation timer: <span id="minutes">5</span> minutes</p>
     <div class="timer-controls">
-      <button onclick="adjustTime(-1)">-</button>
-      <button onclick="startTimer()">Start</button>
-      <button onclick="adjustTime(1)">+</button>
+    
+  <button onclick="adjustTime(-1)">-</button>
+  <button onclick="startTimer()">Start</button>
+  <button onclick="stopTimer()">Reset</button>
+  <button onclick="adjustTime(1)">+</button>
+</div>
     </div>
     <p id="timer-display"></p>
   </div>
@@ -209,6 +212,11 @@
         document.getElementById('recordingTimer').textContent = 
           `${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
       }, 1000);
+        function stopTimer() {
+  clearInterval(timerInterval);
+  document.getElementById('timer-display').textContent = "";
+  document.getElementById('minutes').textContent = meditationMinutes;
+}
       
     } catch (err) {
       console.error('Error accessing microphone:', err);
