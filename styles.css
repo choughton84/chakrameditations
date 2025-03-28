@@ -910,3 +910,57 @@ section {
 .crown { background-color: #8b00ff; color: white; }
 
 /* And that your buttons have these classes applied */
+/* Modern, spiritual aesthetic */
+body {
+  background: linear-gradient(to bottom, #1a1a2e, #16213e);
+  color: #fff;
+  font-family: 'Raleway', sans-serif;
+}
+
+.meditation-container {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+/* Chakra button styling */
+.chakra-button {
+  transition: all 0.3s ease;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  margin: 10px;
+  cursor: pointer;
+  border: 3px solid transparent;
+}
+
+.chakra-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+}
+
+/* Control buttons styling */
+.control-button {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 30px;
+  margin: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.control-button:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+#deleteButton {
+  background: rgba(255, 0, 0, 0.3);
+}
+
+#deleteButton:hover {
+  background: rgba(255, 0, 0, 0.5);
+}
