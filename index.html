@@ -3,280 +3,347 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chakra Healing Affirmation Journal</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Chakra Meditation Journal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        
+        header {
+            background-color: #6a0dad;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+        }
+        
+        nav {
+            background-color: #8a2be2;
+            padding: 0.5rem;
+            text-align: center;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1rem;
+            padding: 0.5rem;
+        }
+        
+        nav a:hover {
+            background-color: #9370db;
+            border-radius: 5px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .chakra-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin-top: 2rem;
+        }
+        
+        .chakra-card {
+            width: 200px;
+            margin: 1rem;
+            padding: 1rem;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .chakra-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .chakra-card img {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 1rem;
+        }
+        
+        .chakra-card h3 {
+            margin-top: 0;
+            color: #6a0dad;
+        }
+        
+        .journal-section {
+            margin-top: 3rem;
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        textarea {
+            width: 100%;
+            height: 200px;
+            padding: 1rem;
+            margin-top: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            resize: vertical;
+        }
+        
+        button {
+            background-color: #6a0dad;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            margin-top: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        button:hover {
+            background-color: #8a2be2;
+        }
+        
+        footer {
+            background-color: #6a0dad;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .chakra-detail {
+            display: none;
+            margin-top: 2rem;
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .chakra-detail.active {
+            display: block;
+        }
+        
+        .affirmation-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        .affirmation-list li {
+            margin-bottom: 0.5rem;
+            padding: 0.5rem;
+            background-color: #f0e6ff;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 <body>
     <header>
-        <h1>Chakra Healing Affirmation Journal</h1>
-        <nav>
-            <ul>
-                <li><a href="#chakras">Chakras</a></li>
-                <li><a href="#journal">Journal</a></li>
-                <li><a href="#meditations">Meditations</a></li>
-            </ul>
-        </nav>
+        <h1>Chakra Meditation Journal</h1>
+        <p>Explore, meditate, and journal your chakra healing journey</p>
     </header>
-
-    <main>
-        <section id="chakras" class="chakra-section">
-            <h2>The Seven Chakras</h2>
-            <p>Click on each chakra to learn more and access your journal entries.</p>
-            
-            <div class="body-map-container">
-                <!-- Replace with your actual body outline image -->
-                <img src="body-outline.png" alt="Body outline" class="body-outline">
-                <div class="chakra-button crown" onclick="showChakraInfo('crown')"></div>
-                <div class="chakra-button third-eye" onclick="showChakraInfo('third-eye')"></div>
-                <div class="chakra-button throat" onclick="showChakraInfo('throat')"></div>
-                <div class="chakra-button heart" onclick="showChakraInfo('heart')"></div>
-                <div class="chakra-button solar-plexus" onclick="showChakraInfo('solar-plexus')"></div>
-                <div class="chakra-button sacral" onclick="showChakraInfo('sacral')"></div>
-                <div class="chakra-button root" onclick="showChakraInfo('root')"></div>
-            </div>
-            
-            <!-- Chakra info boxes with journal entries and affirmations -->
-            <div class="chakra-info" id="crown-info">
-                <div class="chakra-details">
-                    <h2>Crown Chakra (Sahasrara)</h2>
-                    <img src="crown-chakra.png" alt="Crown Chakra Symbol" class="chakra-symbol">
-                    <p>Located at the top of the head, represents spiritual connection and enlightenment.</p>
-                    
-                    <div class="affirmations">
-                        <h3>Affirmations:</h3>
-                        <ul>
-                            <li>I am connected to divine wisdom and universal consciousness.</li>
-                            <li>I am open to higher guidance and spiritual insight.</li>
-                            <li>I trust in the divine plan for my life.</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="journal-section">
-                    <h3>Journal Entry</h3>
-                    <textarea placeholder="Record your thoughts, feelings, and experiences related to your Crown Chakra..."></textarea>
-                    <button class="save-btn">Save Entry</button>
-                </div>
-            </div>
-            
-            <!-- Repeat for other chakras with their specific content -->
-            <div class="chakra-info" id="third-eye-info">
-                <!-- Similar structure as crown chakra -->
-            </div>
-            
-            <!-- Add all other chakra info boxes -->
-        </section>
-
-        <section id="meditation-timer" class="meditation-section">
-            <h2>Meditation Timer</h2>
-            <div class="timer-container">
-                <div class="timer-display">
-                    <span id="minutes">10</span>:<span id="seconds">00</span>
-                </div>
-                <div class="timer-controls">
-                    <button id="start-timer">Start</button>
-                    <button id="pause-timer">Pause</button>
-                    <button id="reset-timer">Reset</button>
-                    <div class="timer-settings">
-                        <label for="meditation-duration">Duration (minutes):</label>
-                        <input type="number" id="meditation-duration" min="1" max="60" value="10">
-                    </div>
-                </div>
-            </div>
-            
-            <div class="meditation-recorder">
-                <h3>Record Your Meditation</h3>
-                <div class="recorder-controls">
-                    <button id="start-recording">Start Recording</button>
-                    <button id="stop-recording" disabled>Stop Recording</button>
-                    <div id="recording-indicator" class="hidden">Recording...</div>
-                </div>
-                <div class="recordings-list">
-                    <h4>Your Recordings</h4>
-                    <ul id="recordings">
-                        <!-- Recordings will be added here dynamically -->
-                    </ul>
-                </div>
-            </div>
-        </section>
+    
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#chakras">Chakras</a>
+        <a href="#journal">Journal</a>
+        <a href="#about">About</a>
+    </nav>
+    
+    <div class="container" id="home">
+        <h2>Welcome to Your Chakra Healing Journey</h2>
+        <p>This interactive journal helps you explore the seven main chakras, practice meditation, and record your experiences and insights.</p>
         
-        <section id="journal" class="journal-section">
-            <h2>Chakra Healing Journal</h2>
-            <div class="journal-tabs">
-                <button class="tab-btn active" onclick="showJournalTab('daily')">Daily Reflections</button>
-                <button class="tab-btn" onclick="showJournalTab('progress')">Progress Tracker</button>
-                <button class="tab-btn" onclick="showJournalTab('insights')">Insights</button>
+        <div class="chakra-container" id="chakras">
+            <div class="chakra-card" onclick="showChakraDetail('root')">
+                <img src="./images/root-chakra.png" alt="Root Chakra">
+                <h3>Root Chakra</h3>
+                <p>Muladhara</p>
             </div>
             
-            <div id="daily-journal" class="journal-tab-content active">
-                <h3>Daily Chakra Journal</h3>
-                <div class="date-selector">
-                    <label for="journal-date">Date:</label>
-                    <input type="date" id="journal-date">
-                </div>
-                <textarea id="daily-entry" placeholder="Record your daily chakra healing experiences, insights, and feelings..."></textarea>
-                <div class="chakra-status">
-                    <h4>Chakra Status Today:</h4>
-                    <div class="chakra-status-grid">
-                        <!-- Chakra status selectors -->
-                        <div class="chakra-status-item">
-                            <label>Crown</label>
-                            <select>
-                                <option>Balanced</option>
-                                <option>Underactive</option>
-                                <option>Overactive</option>
-                                <option>Blocked</option>
-                            </select>
-                        </div>
-                        <!-- Repeat for all chakras -->
-                    </div>
-                </div>
-                <button class="save-btn">Save Journal Entry</button>
+            <div class="chakra-card" onclick="showChakraDetail('sacral')">
+                <img src="./images/sacral-chakra.png" alt="Sacral Chakra">
+                <h3>Sacral Chakra</h3>
+                <p>Svadhisthana</p>
             </div>
             
-            <div id="progress-journal" class="journal-tab-content">
-                <!-- Progress tracking content -->
+            <div class="chakra-card" onclick="showChakraDetail('solar')">
+                <img src="./images/solar-chakra.png" alt="Solar Plexus Chakra">
+                <h3>Solar Plexus Chakra</h3>
+                <p>Manipura</p>
             </div>
             
-            <div id="insights-journal" class="journal-tab-content">
-                <!-- Insights content -->
+            <div class="chakra-card" onclick="showChakraDetail('heart')">
+                <img src="./images/heart-chakra.png" alt="Heart Chakra">
+                <h3>Heart Chakra</h3>
+                <p>Anahata</p>
             </div>
-        </section>
-    </main>
-
+            
+            <div class="chakra-card" onclick="showChakraDetail('throat')">
+                <img src="./images/throat-chakra.png" alt="Throat Chakra">
+                <h3>Throat Chakra</h3>
+                <p>Vishuddha</p>
+            </div>
+            
+            <div class="chakra-card" onclick="showChakraDetail('third-eye')">
+                <img src="./images/third-eye-chakra.png" alt="Third Eye Chakra">
+                <h3>Third Eye Chakra</h3>
+                <p>Ajna</p>
+            </div>
+            
+            <div class="chakra-card" onclick="showChakraDetail('crown')">
+                <img src="./images/crown-chakra.png" alt="Crown Chakra">
+                <h3>Crown Chakra</h3>
+                <p>Sahasrara</p>
+            </div>
+        </div>
+        
+        <div id="root-detail" class="chakra-detail">
+            <h2>Root Chakra (Muladhara)</h2>
+            <p>The Root Chakra is located at the base of the spine and represents our foundation and feeling of being grounded.</p>
+            <h3>Associated with:</h3>
+            <ul>
+                <li>Survival instincts</li>
+                <li>Stability</li>
+                <li>Security</li>
+                <li>Basic needs (food, shelter, safety)</li>
+            </ul>
+            <h3>When balanced:</h3>
+            <p>You feel secure, stable, and confident in life.</p>
+            <h3>Affirmations:</h3>
+            <ul class="affirmation-list">
+                <li>I am safe and secure</li>
+                <li>I am grounded and centered</li>
+                <li>I have everything I need</li>
+                <li>I trust in the process of life</li>
+            </ul>
+            <h3>Meditation Focus:</h3>
+            <p>Visualize a strong red light at the base of your spine, connecting you to the earth.</p>
+            <div class="journal-section">
+                <h3>Journal Your Experience:</h3>
+                <textarea placeholder="Write about your Root Chakra meditation experience..."></textarea>
+                <button onclick="saveJournalEntry('root')">Save Entry</button>
+            </div>
+        </div>
+        
+        <!-- Similar sections for other chakras -->
+        <div id="sacral-detail" class="chakra-detail">
+            <h2>Sacral Chakra (Svadhisthana)</h2>
+            <p>The Sacral Chakra is located in the lower abdomen and is associated with creativity and emotional well-being.</p>
+            <!-- Content similar to root chakra -->
+        </div>
+        
+        <div id="solar-detail" class="chakra-detail">
+            <h2>Solar Plexus Chakra (Manipura)</h2>
+            <p>The Solar Plexus Chakra is located in the upper abdomen and governs personal power and confidence.</p>
+            <!-- Content similar to root chakra -->
+        </div>
+        
+        <div id="heart-detail" class="chakra-detail">
+            <h2>Heart Chakra (Anahata)</h2>
+            <p>The Heart Chakra is located at the center of the chest and is associated with love and compassion.</p>
+            <!-- Content similar to root chakra -->
+        </div>
+        
+        <div id="throat-detail" class="chakra-detail">
+            <h2>Throat Chakra (Vishuddha)</h2>
+            <p>The Throat Chakra is located in the throat and governs communication and self-expression.</p>
+            <!-- Content similar to root chakra -->
+        </div>
+        
+        <div id="third-eye-detail" class="chakra-detail">
+            <h2>Third Eye Chakra (Ajna)</h2>
+            <p>The Third Eye Chakra is located on the forehead and is associated with intuition and insight.</p>
+            <!-- Content similar to root chakra -->
+        </div>
+        
+        <div id="crown-detail" class="chakra-detail">
+            <h2>Crown Chakra (Sahasrara)</h2>
+            <p>The Crown Chakra is located at the top of the head and represents spiritual connection and enlightenment.</p>
+            <!-- Content similar to root chakra -->
+        </div>
+        
+        <div class="journal-section" id="journal">
+            <h2>Meditation Journal</h2>
+            <p>Use this space to record your general meditation experiences, insights, and progress.</p>
+            <textarea placeholder="Write about your meditation journey..."></textarea>
+            <button onclick="saveGeneralJournal()">Save Journal Entry</button>
+        </div>
+        
+        <div id="about">
+            <h2>About This Journal</h2>
+            <p>This Chakra Meditation Journal was created to help you on your spiritual journey. By working with your chakras, you can achieve greater balance, healing, and spiritual growth.</p>
+            <p>Regular meditation and journaling can help you identify blockages in your energy centers and track your progress as you work to clear and balance them.</p>
+        </div>
+    </div>
+    
     <footer>
-        <p>Created by Cristina Houghton</p>
+        <p>&copy; 2023 Chakra Meditation Journal | Created by Cristina Houghton</p>
     </footer>
 
     <script>
-        // Chakra info display
-        function showChakraInfo(chakra) {
-            // Hide all chakra info boxes
-            const allInfoBoxes = document.querySelectorAll('.chakra-info');
-            allInfoBoxes.forEach(box => {
-                box.style.display = 'none';
+        function showChakraDetail(chakra) {
+            // Hide all chakra details
+            const allDetails = document.querySelectorAll('.chakra-detail');
+            allDetails.forEach(detail => {
+                detail.classList.remove('active');
             });
             
-            // Show the selected chakra info box
-            const selectedInfo = document.getElementById(chakra + '-info');
-            if (selectedInfo) {
-                selectedInfo.style.display = 'block';
+            // Show the selected chakra detail
+            const selectedDetail = document.getElementById(`${chakra}-detail`);
+            if (selectedDetail) {
+                selectedDetail.classList.add('active');
+                // Scroll to the detail section
+                selectedDetail.scrollIntoView({ behavior: 'smooth' });
             }
         }
         
-        // Journal tabs
-        function showJournalTab(tabName) {
-            // Hide all tab content
-            const tabContents = document.querySelectorAll('.journal-tab-content');
-            tabContents.forEach(tab => {
-                tab.classList.remove('active');
-            });
-            
-            // Show selected tab
-            document.getElementById(tabName + '-journal').classList.add('active');
-            
-            // Update active tab button
-            const tabButtons = document.querySelectorAll('.tab-btn');
-            tabButtons.forEach(btn => {
-                btn.classList.remove('active');
-            });
-            event.currentTarget.classList.add('active');
+        function saveJournalEntry(chakra) {
+            const textarea = document.querySelector(`#${chakra}-detail textarea`);
+            if (textarea && textarea.value.trim() !== '') {
+                alert('Journal entry saved!');
+                // In a real application, you would save this to localStorage or a database
+                localStorage.setItem(`${chakra}-journal`, textarea.value);
+            } else {
+                alert('Please write something before saving.');
+            }
         }
         
-        // Meditation Timer
-        let timerInterval;
-        let totalSeconds = 600; // 10 minutes default
+        function saveGeneralJournal() {
+            const textarea = document.querySelector('#journal textarea');
+            if (textarea && textarea.value.trim() !== '') {
+                alert('Journal entry saved!');
+                // In a real application, you would save this to localStorage or a database
+                localStorage.setItem('general-journal', textarea.value);
+            } else {
+                alert('Please write something before saving.');
+            }
+        }
         
-        document.getElementById('start-timer').addEventListener('click', function() {
-            const duration = document.getElementById('meditation-duration').value;
-            totalSeconds = duration * 60;
-            updateTimerDisplay();
+        // Load any saved journal entries when the page loads
+        window.onload = function() {
+            const chakras = ['root', 'sacral', 'solar', 'heart', 'throat', 'third-eye', 'crown'];
             
-            clearInterval(timerInterval);
-            timerInterval = setInterval(function() {
-                totalSeconds--;
-                updateTimerDisplay();
-                
-                if (totalSeconds <= 0) {
-                    clearInterval(timerInterval);
-                    alert('Meditation complete!');
+            chakras.forEach(chakra => {
+                const savedEntry = localStorage.getItem(`${chakra}-journal`);
+                const textarea = document.querySelector(`#${chakra}-detail textarea`);
+                if (savedEntry && textarea) {
+                    textarea.value = savedEntry;
                 }
-            }, 1000);
-        });
-        
-        document.getElementById('pause-timer').addEventListener('click', function() {
-            clearInterval(timerInterval);
-        });
-        
-        document.getElementById('reset-timer').addEventListener('click', function() {
-            clearInterval(timerInterval);
-            const duration = document.getElementById('meditation-duration').value;
-            totalSeconds = duration * 60;
-            updateTimerDisplay();
-        });
-        
-        function updateTimerDisplay() {
-            const minutes = Math.floor(totalSeconds / 60);
-            const seconds = totalSeconds % 60;
-            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
-            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
-        }
-        
-        // Audio Recording
-        let mediaRecorder;
-        let audioChunks = [];
-        
-        document.getElementById('start-recording').addEventListener('click', async function() {
-            try {
-                const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-                mediaRecorder = new MediaRecorder(stream);
-                
-                mediaRecorder.ondataavailable = function(e) {
-                    audioChunks.push(e.data);
-                };
-                
-                mediaRecorder.onstop = function() {
-                    const audioBlob = new Blob(audioChunks, { type: 'audio/mp3' });
-                    const audioUrl = URL.createObjectURL(audioBlob);
-                    
-                    const now = new Date();
-                    const timestamp = now.toLocaleString();
-                    
-                    const recordingsList = document.getElementById('recordings');
-                    const recordingItem = document.createElement('li');
-                    
-                    const audio = document.createElement('audio');
-                    audio.controls = true;
-                    audio.src = audioUrl;
-                    
-                    const recordingLabel = document.createElement('span');
-                    recordingLabel.textContent = `Meditation Recording (${timestamp})`;
-                    
-                    recordingItem.appendChild(recordingLabel);
-                    recordingItem.appendChild(audio);
-                    recordingsList.appendChild(recordingItem);
-                    
-                    audioChunks = [];
-                };
-                
-                mediaRecorder.start();
-                document.getElementById('recording-indicator').classList.remove('hidden');
-                document.getElementById('start-recording').disabled = true;
-                document.getElementById('stop-recording').disabled = false;
-            } catch (err) {
-                console.error('Error accessing microphone:', err);
-                alert('Could not access your microphone. Please check permissions.');
+            });
+            
+            const generalJournal = localStorage.getItem('general-journal');
+            const generalTextarea = document.querySelector('#journal textarea');
+            if (generalJournal && generalTextarea) {
+                generalTextarea.value = generalJournal;
             }
-        });
-        
-        document.getElementById('stop-recording').addEventListener('click', function() {
-            if (mediaRecorder && mediaRecorder.state !== 'inactive') {
-                mediaRecorder.stop();
-                document.getElementById('recording-indicator').classList.add('hidden');
-                document.getElementById('start-recording').disabled = false;
-                document.getElementById('stop-recording').disabled = true;
-            }
-        });
+        };
     </script>
 </body>
 </html>
