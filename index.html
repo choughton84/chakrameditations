@@ -576,6 +576,153 @@
             showChakraContent('root-chakra-content');
             updateTimerDisplay();
         });
+   // Journal, Affirmation and Meditation Recorder
+document.addEventListener('DOMContentLoaded', function() {
+    // Set today's date as default
+    const today = new Date().toISOString().split('T')[0];
+    document.getElementById('journal-date').value = today;
+    
+    // Save journal entry
+    document.getElementById('save-journal').addEventListener('click', function() {
+        const chakra = document.getElementById('journal-chakra-select').value;
+        const date = document.getElementById('journal-date').value;
+        const affirmations = document.getElementById('affirmation-text').value;
+        const journalText = document.getElementById('journal-text').value;
+        const meditationNotes = document.getElementById('meditation-notes').value;
+        
+        if (!journalText && !affirmations && !meditationNotes) {
+            alert('Please write something before saving.');
+            return;
+        }
+        
+        // Create entry ID
+        const entryId = `chakra-journal-${chakra}-${date}-${new Date().getTime()}`;
+        
+        // Create entry object
+        const entry = {
+            id: entryId,
+            chakra: chakra,
+            date: date,
+            affirmations: affirmations,
+            journalText: journalText,
+            meditationNotes: meditationNotes,
+            timestamp: new Date().getTime()
+        };
+        
+        // Get existing entries or initialize empty array
+        const existingEntries = JSON.parse(localStorage.getItem('chakraJournalEntries')) || [];
+        
+        // Add new entry
+        existingEntries.push(entry);
+        
+        // Save to localStorage
+        localStorage.setItem('chakraJournalEntries', JSON.stringify(existingEntries));
+        
+        // Update entry list
+        updateEntryList();
+        
+        alert('Journal entry saved successfully!');
+    });
+    
+    // Load journal entry
+    document.getElementById('load-journal').addEventListener('click', function() {
+        const chakra = document.getElementById('journal-chakra-select').value;
+        const date = document.getElementById('journal-date').value;
+        
+        // Get existing entries
+        const existingEntries = JSON.parse(localStorage.getItem('chakraJournalEntries')) || [];
+        
+        // Find entries for selected chakra and date
+        const matchingEntries = existingEntries.filter(entry => 
+            entry.chakra === chakra && entry.date === date
+        );
+        
+        if (matchingEntries.length === 0) {
+            alert('No entries found for this chakra and date.');
+            return;
+        }
+        
+        // Sort by timestamp (newest first)
+        matchingEntries.sort((a, b) => b.timestamp - a.timestamp);
+        
+        // Load the most recent entry
+        const latestEntry = matchingEntries[0];
+        document.getElementById('affirmation-text').value = latestEntry.affirmations || '';
+        document.getElementById('journal-text').value = latestEntry.journalText || '';
+        document.getElementById('meditation-notes').value = latestEntry.meditationNotes || '';
+    });
+    
+    // Clear journal fields
+    document.getElementById('clear-journal').addEventListener('click', function() {
+        if (confirm('Are you sure you want to clear all fields?')) {
+            document.getElementById('affirmation-text').value = '';
+            document.getElementById('journal-text').value = '';
+            document.getElementById('meditation-notes').value = '';
+        }
+    });
+    
+    // Update entry list
+    function updateEntryList() {
+        const entryList = document.getElementById('entry-list');
+        entryList.innerHTML = '';
+        
+        // Get existing entries
+        const existingEntries = JSON.parse(localStorage.getItem('chakraJournalEntries')) || [];
+        
+        // Sort by date (newest first)
+        existingEntries.sort((a, b) => new Date(b.date) - new Date(a.date));
+        
+        // Display up to 10 most recent entries
+        const recentEntries = existingEntries.slice(0, 10);
+        
+        if (recentEntries.length === 0) {
+            entryList.innerHTML = '<p>No entries yet. Start journaling!</p>';
+            return;
+        }
+        
+        // Create entry items
+        recentEntries.forEach(entry => {
+            const entryItem = document.createElement('div');
+            entryItem.className = 'entry-item';
+            entryItem.dataset.id = entry.id;
+            
+            // Format date
+            const formattedDate = new Date(entry.date).toLocaleDateString();
+            
+            // Get chakra name
+            const chakraNames = {
+                'root': 'Root',
+                'sacral': 'Sacral',
+                'solar-plexus': 'Solar Plexus',
+                'heart': 'Heart',
+                'throat': 'Throat',
+                'third-eye': 'Third Eye',
+                'crown': 'Crown'
+            };
+            
+            const chakraName = chakraNames[entry.chakra] || entry.chakra;
+            
+            entryItem.innerHTML = `
+                <h4>${chakraName} Chakra - ${formattedDate}</h4>
+                <p>${entry.journalText.substring(0, 50)}${entry.journalText.length > 50 ? '...' : ''}</p>
+            `;
+            
+            // Add click event to load entry
+            entryItem.addEventListener('click', function() {
+                document.getElementById('journal-chakra-select').value = entry.chakra;
+                document.getElementById('journal-date').value = entry.date;
+                document.getElementById('affirmation-text').value = entry.affirmations || '';
+                document.getElementById('journal-text').value = entry.journalText || '';
+                document.getElementById('meditation-notes').value = entry.meditationNotes || '';
+            });
+            
+            entryList.appendChild(entryItem);
+        });
+    }
+    
+    // Initialize entry list
+    updateEntryList();
+});
     </script>
 </body>
 </html>
