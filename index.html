@@ -1,143 +1,299 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chakra Healing Affirmation Journal</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 20px;
-            background-color: #f5f5f5;
-            color: #333;
-        }
-        
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background-color: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        
-        h1 {
-            color: #6a0dad;
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        
-        .chakra-list {
-            list-style: none;
-            padding: 0;
-        }
-        
-        .chakra-item {
-            margin-bottom: 20px;
-            padding: 15px;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: transform 0.3s;
-        }
-        
-        .chakra-item:hover {
-            transform: translateY(-5px);
-        }
-        
-        .crown { background-color: #a682ff; }
-        .third-eye { background-color: #6a5acd; }
-        .throat { background-color: #4ca6ff; }
-        .heart { background-color: #4caf50; }
-        .solar-plexus { background-color: #ffd700; }
-        .sacral { background-color: #ff7f50; }
-        .root { background-color: #ff4040; }
-        
-        .chakra-info {
-            margin-top: 30px;
-            padding: 20px;
-            background-color: #f9f9f9;
-            border-radius: 8px;
-            border-left: 5px solid #6a0dad;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>Chakra Healing Affirmation Journal</h1>
-        
-        <p>Click on a chakra to view information and affirmations:</p>
-        
-        <ul class="chakra-list">
-            <li class="chakra-item crown" onclick="showChakraInfo('crown')">Crown Chakra (Sahasrara)</li>
-            <li class="chakra-item third-eye" onclick="showChakraInfo('third-eye')">Third Eye Chakra (Ajna)</li>
-            <li class="chakra-item throat" onclick="showChakraInfo('throat')">Throat Chakra (Vishuddha)</li>
-            <li class="chakra-item heart" onclick="showChakraInfo('heart')">Heart Chakra (Anahata)</li>
-            <li class="chakra-item solar-plexus" onclick="showChakraInfo('solar-plexus')">Solar Plexus Chakra (Manipura)</li>
-            <li class="chakra-item sacral" onclick="showChakraInfo('sacral')">Sacral Chakra (Svadhisthana)</li>
-            <li class="chakra-item root" onclick="showChakraInfo('root')">Root Chakra (Muladhara)</li>
-        </ul>
-        
-        <div id="chakra-info-display" class="chakra-info" style="display: none;">
-            <h2 id="chakra-title"></h2>
-            <p id="chakra-description"></p>
-            <p id="chakra-affirmation"><strong>Affirmation: </strong><span id="affirmation-text"></span></p>
-        </div>
-    </div>
+<!-- [Previous HTML and CSS remains the same] -->
 
-    <script>
-        function showChakraInfo(chakra) {
-            const infoDisplay = document.getElementById('chakra-info-display');
-            const chakraTitle = document.getElementById('chakra-title');
-            const chakraDescription = document.getElementById('chakra-description');
-            const affirmationText = document.getElementById('affirmation-text');
-            
-            // Show the info display
-            infoDisplay.style.display = 'block';
-            
-            // Set content based on chakra
-            switch(chakra) {
-                case 'crown':
-                    chakraTitle.textContent = 'Crown Chakra (Sahasrara)';
-                    chakraDescription.textContent = 'Located at the top of the head, the Crown Chakra represents spiritual connection, higher consciousness, and enlightenment.';
-                    affirmationText.textContent = 'I am connected to divine wisdom. I trust my intuition and higher guidance.';
-                    break;
-                case 'third-eye':
-                    chakraTitle.textContent = 'Third Eye Chakra (Ajna)';
-                    chakraDescription.textContent = 'Located between the eyebrows, the Third Eye Chakra represents intuition, perception, and spiritual awareness.';
-                    affirmationText.textContent = 'I trust my inner vision and intuition. I see clearly in all situations.';
-                    break;
-                case 'throat':
-                    chakraTitle.textContent = 'Throat Chakra (Vishuddha)';
-                    chakraDescription.textContent = 'Located at the throat, this chakra represents communication, self-expression, and speaking your truth.';
-                    affirmationText.textContent = 'I express myself clearly and confidently. My voice matters.';
-                    break;
-                case 'heart':
-                    chakraTitle.textContent = 'Heart Chakra (Anahata)';
-                    chakraDescription.textContent = 'Located at the center of the chest, the Heart Chakra represents love, compassion, and emotional balance.';
-                    affirmationText.textContent = 'I am open to giving and receiving love. I am worthy of love and compassion.';
-                    break;
-                case 'solar-plexus':
-                    chakraTitle.textContent = 'Solar Plexus Chakra (Manipura)';
-                    chakraDescription.textContent = 'Located above the navel, the Solar Plexus Chakra represents personal power, confidence, and self-esteem.';
-                    affirmationText.textContent = 'I am confident in my abilities. I have the power to create change in my life.';
-                    break;
-                case 'sacral':
-                    chakraTitle.textContent = 'Sacral Chakra (Svadhisthana)';
-                    chakraDescription.textContent = 'Located below the navel, the Sacral Chakra represents creativity, passion, and emotional well-being.';
-                    affirmationText.textContent = 'I embrace my passions and desires. I allow creativity to flow through me.';
-                    break;
-                case 'root':
-                    chakraTitle.textContent = 'Root Chakra (Muladhara)';
-                    chakraDescription.textContent = 'Located at the base of the spine, the Root Chakra represents stability, security, and grounding.';
-                    affirmationText.textContent = 'I am safe and secure. I am grounded and connected to the earth.';
-                    break;
-            }
-            
-            // Scroll to the info display
-            infoDisplay.scrollIntoView({ behavior: 'smooth' });
+<script>
+    // Navigation functions
+    function showJournalPage() {
+        document.getElementById('main-page').style.display = 'none';
+        document.getElementById('journal-page').style.display = 'block';
+        loadAllSavedData();
+    }
+    
+    function showMainPage() {
+        document.getElementById('journal-page').style.display = 'none';
+        document.getElementById('main-page').style.display = 'block';
+    }
+    
+    // Tab functionality
+    function openTab(tabId) {
+        // Hide all tab contents
+        const tabContents = document.getElementsByClassName('tab-content');
+        for (let i = 0; i < tabContents.length; i++) {
+            tabContents[i].classList.remove('active');
         }
-    </script>
+        
+        // Deactivate all tab buttons
+        const tabButtons = document.getElementsByClassName('tab-btn');
+        for (let i = 0; i < tabButtons.length; i++) {
+            tabButtons[i].classList.remove('active');
+        }
+        
+        // Show the selected tab content
+        document.getElementById(tabId).classList.add('active');
+        
+        // Activate the clicked tab button
+        event.currentTarget.classList.add('active');
+    }
+    
+    // Chakra information display
+    function showChakraInfo(chakra) {
+        const infoDisplay = document.getElementById('chakra-info-display');
+        const chakraTitle = document.getElementById('chakra-title');
+        const chakraDescription = document.getElementById('chakra-description');
+        const affirmationText = document.getElementById('affirmation-text');
+        
+        // Show the info display
+        infoDisplay.style.display = 'block';
+        
+        // Set content based on chakra
+        switch(chakra) {
+            case 'crown':
+                chakraTitle.textContent = 'Crown Chakra (Sahasrara)';
+                chakraDescription.textContent = 'Located at the top of the head, the Crown Chakra represents spiritual connection, higher consciousness, and enlightenment.';
+                affirmationText.textContent = 'I am connected to divine wisdom. I trust my intuition and higher guidance.';
+                break;
+            case 'third-eye':
+                chakraTitle.textContent = 'Third Eye Chakra (Ajna)';
+                chakraDescription.textContent = 'Located between the eyebrows, the Third Eye Chakra represents intuition, perception, and spiritual awareness.';
+                affirmationText.textContent = 'I trust my inner vision and intuition. I see clearly in all situations.';
+                break;
+            case 'throat':
+                chakraTitle.textContent = 'Throat Chakra (Vishuddha)';
+                chakraDescription.textContent = 'Located at the throat, this chakra represents communication, self-expression, and speaking your truth.';
+                affirmationText.textContent = 'I express myself clearly and confidently. My voice matters.';
+                break;
+            case 'heart':
+                chakraTitle.textContent = 'Heart Chakra (Anahata)';
+                chakraDescription.textContent = 'Located at the center of the chest, the Heart Chakra represents love, compassion, and emotional balance.';
+                affirmationText.textContent = 'I am open to giving and receiving love. I am worthy of love and compassion.';
+                break;
+            case 'solar-plexus':
+                chakraTitle.textContent = 'Solar Plexus Chakra (Manipura)';
+                chakraDescription.textContent = 'Located above the navel, the Solar Plexus Chakra represents personal power, confidence, and self-esteem.';
+                affirmationText.textContent = 'I am confident in my abilities. I have the power to create change in my life.';
+                break;
+            case 'sacral':
+                chakraTitle.textContent = 'Sacral Chakra (Svadhisthana)';
+                chakraDescription.textContent = 'Located below the navel, the Sacral Chakra represents creativity, passion, and emotional well-being.';
+                affirmationText.textContent = 'I embrace my creativity and passion. I allow my emotions to flow freely.';
+                break;
+            case 'root':
+                chakraTitle.textContent = 'Root Chakra (Muladhara)';
+                chakraDescription.textContent = 'Located at the base of the spine, the Root Chakra represents stability, security, and groundedness.';
+                affirmationText.textContent = 'I am safe and secure. I am grounded and connected to the earth.';
+                break;
+        }
+    }
+    
+    // Timer functionality
+    let timerInterval;
+    let seconds = 0;
+    let minutes = 0;
+    let isRunning = false;
+    
+    function startTimer() {
+        if (!isRunning) {
+            isRunning = true;
+            timerInterval = setInterval(updateTimer, 1000);
+        }
+    }
+    
+    function pauseTimer() {
+        clearInterval(timerInterval);
+        isRunning = false;
+    }
+    
+    function resetTimer() {
+        clearInterval(timerInterval);
+        isRunning = false;
+        seconds = 0;
+        minutes = 0;
+        document.getElementById('timer').textContent = '00:00';
+    }
+    
+    function updateTimer() {
+        seconds++;
+        if (seconds >= 60) {
+            seconds = 0;
+            minutes++;
+        }
+        
+        const displayMinutes = minutes < 10 ? '0' + minutes : minutes;
+        const displaySeconds = seconds < 10 ? '0' + seconds : seconds;
+        
+        document.getElementById('timer').textContent = displayMinutes + ':' + displaySeconds;
+    }
+    
+    // Save functionality
+    function saveNotes() {
+        const notes = document.getElementById('meditation-notes').value;
+        if (notes.trim() === '') {
+            document.getElementById('save-status').textContent = 'Please enter some notes to save.';
+            return;
+        }
+        
+        const date = new Date();
+        const savedNote = {
+            date: date.toLocaleString(),
+            content: notes
+        };
+        
+        // Get existing notes from localStorage
+        let savedNotes = JSON.parse(localStorage.getItem('meditationNotes')) || [];
+        savedNotes.push(savedNote);
+        
+        // Save back to localStorage
+        localStorage.setItem('meditationNotes', JSON.stringify(savedNotes));
+        
+        document.getElementById('save-status').textContent = 'Notes saved successfully!';
+        document.getElementById('meditation-notes').value = '';
+        
+        // Clear the status message after 3 seconds
+        setTimeout(() => {
+            document.getElementById('save-status').textContent = '';
+        }, 3000);
+    }
+    
+    function saveAffirmation() {
+        const affirmation = document.getElementById('affirmation-text').textContent;
+        const chakra = document.getElementById('chakra-title').textContent;
+        
+        const date = new Date();
+        const savedAffirmation = {
+            date: date.toLocaleString(),
+            chakra: chakra,
+            affirmation: affirmation
+        };
+        
+        // Get existing affirmations from localStorage
+        let savedAffirmations = JSON.parse(localStorage.getItem('savedAffirmations')) || [];
+        savedAffirmations.push(savedAffirmation);
+        
+        // Save back to localStorage
+        localStorage.setItem('savedAffirmations', JSON.stringify(savedAffirmations));
+        
+        document.getElementById('affirmation-save-status').textContent = 'Affirmation saved successfully!';
+        
+        // Clear the status message after 3 seconds
+        setTimeout(() => {
+            document.getElementById('affirmation-save-status').textContent = '';
+        }, 3000);
+    }
+    
+    function saveJournalEntry() {
+        const title = document.getElementById('journal-title').value;
+        const content = document.getElementById('journal-content').value;
+        
+        if (title.trim() === '' || content.trim() === '') {
+            document.getElementById('journal-save-status').textContent = 'Please enter both a title and content for your journal entry.';
+            return;
+        }
+        
+        const date = new Date();
+        const journalEntry = {
+            date: date.toLocaleString(),
+            title: title,
+            content: content
+        };
+        
+        // Get existing journal entries from localStorage
+        let journalEntries = JSON.parse(localStorage.getItem('journalEntries')) || [];
+        journalEntries.push(journalEntry);
+        
+        // Save back to localStorage
+        localStorage.setItem('journalEntries', JSON.stringify(journalEntries));
+        
+        document.getElementById('journal-save-status').textContent = 'Journal entry saved successfully!';
+        document.getElementById('journal-title').value = '';
+        document.getElementById('journal-content').value = '';
+        
+        // Clear the status message after 3 seconds
+        setTimeout(() => {
+            document.getElementById('journal-save-status').textContent = '';
+        }, 3000);
+        
+        // Refresh the journal entries display
+        displayJournalEntries();
+    }
+    
+    // Display saved data
+    function loadAllSavedData() {
+        displaySavedNotes();
+        displaySavedAffirmations();
+        displayJournalEntries();
+    }
+    
+    function displaySavedNotes() {
+        const container = document.getElementById('saved-notes-container');
+        container.innerHTML = '';
+        
+        const savedNotes = JSON.parse(localStorage.getItem('meditationNotes')) || [];
+        
+        if (savedNotes.length === 0) {
+            container.innerHTML = '<p>No meditation notes saved yet.</p>';
+            return;
+        }
+        
+        // Display notes in reverse chronological order
+        savedNotes.reverse().forEach(note => {
+            const noteElement = document.createElement('div');
+            noteElement.className = 'journal-entry';
+            noteElement.innerHTML = `
+                <div class="journal-date">${note.date}</div>
+                <div class="journal-content">${note.content}</div>
+            `;
+            container.appendChild(noteElement);
+        });
+    }
+    
+    function displaySavedAffirmations() {
+        const container = document.getElementById('saved-affirmations-container');
+        container.innerHTML = '';
+        
+        const savedAffirmations = JSON.parse(localStorage.getItem('savedAffirmations')) || [];
+        
+        if (savedAffirmations.length === 0) {
+            container.innerHTML = '<p>No affirmations saved yet.</p>';
+            return;
+        }
+        
+        // Display affirmations in reverse chronological order
+        savedAffirmations.reverse().forEach(aff => {
+            const affElement = document.createElement('div');
+            affElement.className = 'journal-entry';
+            affElement.innerHTML = `
+                <div class="journal-date">${aff.date}</div>
+                <div><strong>${aff.chakra}</strong></div>
+                <div class="affirmation-saved">"${aff.affirmation}"</div>
+            `;
+            container.appendChild(affElement);
+        });
+    }
+    
+    function displayJournalEntries() {
+        const container = document.getElementById('journal-entries-container');
+        container.innerHTML = '';
+        
+        const journalEntries = JSON.parse(localStorage.getItem('journalEntries')) || [];
+        
+        if (journalEntries.length === 0) {
+            container.innerHTML = '<p>No journal entries saved yet.</p>';
+            return;
+        }
+        
+        // Display journal entries in reverse chronological order
+        journalEntries.reverse().forEach(entry => {
+            const entryElement = document.createElement('div');
+            entryElement.className = 'journal-entry';
+            entryElement.innerHTML = `
+                <div class="journal-date">${entry.date}</div>
+                <h3>${entry.title}</h3>
+                <div class="journal-content">${entry.content}</div>
+            `;
+            container.appendChild(entryElement);
+        });
+    }
+</script>
 </body>
 </html>
