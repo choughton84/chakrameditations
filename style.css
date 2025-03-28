@@ -746,3 +746,101 @@ section {
         flex-direction: column;
     }
 }
+/* Journal Button Styling */
+.chakra-button[data-chakra="journal"] {
+    background: linear-gradient(135deg, #9c27b0, #673ab7);
+    border: 2px solid white;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.chakra-button[data-chakra="journal"]:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+}
+
+/* Journal Section Styling */
+#journal-section {
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 15px;
+    padding: 30px;
+    margin: 50px auto;
+    max-width: 800px;
+    color: white;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+#journal-section h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+    background: linear-gradient(135deg, #9c27b0, #673ab7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.journal-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.journal-form label {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.journal-form input,
+.journal-form textarea,
+.journal-form select {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    padding: 12px;
+    color: white;
+    font-size: 1rem;
+}
+
+.journal-form textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.journal-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.journal-button {
+    padding: 12px 25px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.save-button {
+    background: linear-gradient(135deg, #9c27b0, #673ab7);
+    color: white;
+}
+
+.load-button {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+.journal-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Chakra-specific text colors */
+.root-text { color: #ff0000; }
+.sacral-text { color: #ff8000; }
+.solar-plexus-text { color: #ffff00; }
+.heart-text { color: #00ff00; }
+.throat-text { color: #00ffff; }
+.third-eye-text { color: #0000ff; }
+.crown-text { color: #8000ff; }
