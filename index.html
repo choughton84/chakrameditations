@@ -313,7 +313,269 @@
     </div>
 
     <script>
-        // Your existing JavaScript code goes here
+        // Page navigation
+function showMainPage() {
+    document.getElementById('main-page').style.display = 'block';
+    document.getElementById('journal-page').style.display = 'none';
+}
+
+function showJournalPage() {
+    document.getElementById('main-page').style.display = 'none';
+    document.getElementById('journal-page').style.display = 'block';
+    loadJournalData();
+}
+
+// Chakra information
+const chakraInfo = {
+    'crown': {
+        title: 'Crown Chakra (Sahasrara)',
+        description: 'Located at the top of the head, represents spiritual connection and enlightenment.',
+        affirmation: 'I am connected to divine wisdom and universal consciousness.'
+    },
+    'third-eye': {
+        title: 'Third Eye Chakra (Ajna)',
+        description: 'Located between the eyebrows, represents intuition and perception.',
+        affirmation: 'I trust my intuition and inner wisdom.'
+    },
+    'throat': {
+        title: 'Throat Chakra (Vishuddha)',
+        description: 'Located at the throat, represents communication and self-expression.',
+        affirmation: 'I express myself clearly and speak my truth with confidence.'
+    },
+    'heart': {
+        title: 'Heart Chakra (Anahata)',
+        description: 'Located at the center of the chest, represents love and compassion.',
+        affirmation: 'I give and receive love freely and unconditionally.'
+    },
+    'solar-plexus': {
+        title: 'Solar Plexus Chakra (Manipura)',
+        description: 'Located above the navel, represents personal power and confidence.',
+        affirmation: 'I am confident in my abilities and trust my inner strength.'
+    },
+    'sacral': {
+        title: 'Sacral Chakra (Svadhisthana)',
+        description: 'Located below the navel, represents creativity and emotional balance.',
+        affirmation: 'I embrace my creativity and honor my emotions.'
+    },
+    'root': {
+        title: 'Root Chakra (Muladhara)',
+        description: 'Located at the base of the spine, represents stability and grounding.',
+        affirmation: 'I am safe, secure, and grounded in the present moment.'
+    }
+};
+
+function showChakraInfo(chakra) {
+    const info = chakraInfo[chakra];
+    document.getElementById('chakra-title').textContent = info.title;
+    document.getElementById('chakra-description').textContent = info.description;
+    document.getElementById('affirmation-text').textContent = info.affirmation;
+    document.getElementById('chakra-info-display').style.display = 'block';
+    document.getElementById('affirmation-save-status').textContent = '';
+    
+    // Store current chakra for saving
+    currentChakra = chakra;
+}
+
+// Timer functionality
+let timerInterval;
+let seconds = 0;
+
+function startTimer() {
+    if (!timerInterval) {
+        timerInterval = setInterval(updateTimer, 1000);
+    }
+}
+
+function pauseTimer() {
+    clearInterval(timerInterval);
+    timerInterval = null;
+}
+
+function resetTimer() {
+    clearInterval(timerInterval);
+    timerInterval = null;
+    seconds = 0;
+    document.getElementById('timer').textContent = '00:00';
+}
+
+function updateTimer() {
+    seconds++;
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = seconds % 60;
+    document.getElementById('timer').textContent = 
+        `${minutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;
+}
+
+// Tab functionality
+function openTab(tabId) {
+    // Hide all tab contents
+    const tabContents = document.getElementsByClassName('tab-content');
+    for (let i = 0; i < tabContents.length; i++) {
+        tabContents[i].classList.remove('active');
+    }
+    
+    // Remove active class from all tab buttons
+    const tabButtons = document.getElementsByClassName('tab-btn');
+    for (let i = 0; i < tabButtons.length; i++) {
+        tabButtons[i].classList.remove('active');
+    }
+    
+    // Show the selected tab content and activate button
+    document.getElementById(tabId).classList.add('active');
+    event.currentTarget.classList.add('active');
+}
+
+// Storage functions
+let currentChakra = '';
+
+function saveNotes() {
+    const notes = document.getElementById('meditation-notes').value;
+    if (notes.trim() === '') return;
+    
+    const savedNotes = JSON.parse(localStorage.getItem('meditationNotes') || '[]');
+    savedNotes.push({
+        date: new Date().toLocaleString(),
+        content: notes
+    });
+    
+    localStorage.setItem('meditationNotes', JSON.stringify(savedNotes));
+    document.getElementById('save-status').textContent = 'Saved!';
+    setTimeout(() => {
+        document.getElementById('save-status').textContent = '';
+    }, 2000);
+    
+    document.getElementById('meditation-notes').value = '';
+}
+
+function saveAffirmation() {
+    if (!currentChakra) return;
+    
+    const affirmation = chakraInfo[currentChakra].affirmation;
+    const savedAffirmations = JSON.parse(localStorage.getItem('savedAffirmations') || '[]');
+    
+    // Check if already saved
+    if (!savedAffirmations.some(a => a.chakra === currentChakra)) {
+        savedAffirmations.push({
+            date: new Date().toLocaleString(),
+            chakra: currentChakra,
+            chakraName: chakraInfo[currentChakra].title,
+            affirmation: affirmation
+        });
+        
+        localStorage.setItem('savedAffirmations', JSON.stringify(savedAffirmations));
+    }
+    
+    document.getElementById('affirmation-save-status').textContent = 'Saved!';
+    setTimeout(() => {
+        document.getElementById('affirmation-save-status').textContent = '';
+    }, 2000);
+}
+
+function saveJournalEntry() {
+    const title = document.getElementById('journal-title').value;
+    const content = document.getElementById('journal-content').value;
+    
+    if (title.trim() === '' || content.trim() === '') return;
+    
+    const journalEntries = JSON.parse(localStorage.getItem('journalEntries') || '[]');
+    journalEntries.push({
+        date: new Date().toLocaleString(),
+        title: title,
+        content: content
+    });
+    
+    localStorage.setItem('journalEntries', JSON.stringify(journalEntries));
+    
+    document.getElementById('journal-save-status').textContent = 'Entry saved!';
+    setTimeout(() => {
+        document.getElementById('journal-save-status').textContent = '';
+    }, 2000);
+    
+    document.getElementById('journal-title').value = '';
+    document.getElementById('journal-content').value = '';
+    
+    loadJournalEntries();
+}
+
+// Load saved data
+function loadJournalData() {
+    loadSavedNotes();
+    loadSavedAffirmations();
+    loadJournalEntries();
+}
+
+function loadSavedNotes() {
+    const container = document.getElementById('saved-notes-container');
+    const savedNotes = JSON.parse(localStorage.getItem('meditationNotes') || '[]');
+    
+    container.innerHTML = '';
+    
+    if (savedNotes.length === 0) {
+        container.innerHTML = '<p>No meditation notes saved yet.</p>';
+        return;
+    }
+    
+    savedNotes.reverse().forEach(note => {
+        const noteElement = document.createElement('div');
+        noteElement.className = 'journal-entry';
+        noteElement.innerHTML = `
+            <div class="journal-date">${note.date}</div>
+            <p>${note.content}</p>
+        `;
+        container.appendChild(noteElement);
+    });
+}
+
+function loadSavedAffirmations() {
+    const container = document.getElementById('saved-affirmations-container');
+    const savedAffirmations = JSON.parse(localStorage.getItem('savedAffirmations') || '[]');
+    
+    container.innerHTML = '';
+    
+    if (savedAffirmations.length === 0) {
+        container.innerHTML = '<p>No affirmations saved yet.</p>';
+        return;
+    }
+    
+    savedAffirmations.forEach(aff => {
+        const affElement = document.createElement('div');
+        affElement.className = 'journal-entry';
+        affElement.innerHTML = `
+            <div class="journal-date">${aff.date}</div>
+            <h4>${aff.chakraName}</h4>
+            <p class="affirmation-saved">"${aff.affirmation}"</p>
+        `;
+        container.appendChild(affElement);
+    });
+}
+
+function loadJournalEntries() {
+    const container = document.getElementById('journal-entries-container');
+    const journalEntries = JSON.parse(localStorage.getItem('journalEntries') || '[]');
+    
+    container.innerHTML = '';
+    
+    if (journalEntries.length === 0) {
+        container.innerHTML = '<p>No journal entries yet.</p>';
+        return;
+    }
+    
+    journalEntries.reverse().forEach(entry => {
+        const entryElement = document.createElement('div');
+        entryElement.className = 'journal-entry';
+        entryElement.innerHTML = `
+            <div class="journal-date">${entry.date}</div>
+            <h4>${entry.title}</h4>
+            <p>${entry.content}</p>
+        `;
+        container.appendChild(entryElement);
+    });
+}
+
+// Initialize
+document.addEventListener('DOMContentLoaded', function() {
+    showMainPage();
+});
     </script>
 </body>
 </html>
