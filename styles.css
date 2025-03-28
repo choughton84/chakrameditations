@@ -900,3 +900,13 @@ section {
 .audio-controls {
     margin-top: 20px;
 }
+/* Make sure these classes exist in your CSS */
+.root { background-color: #ff0000; color: white; }
+.sacral { background-color: #ff7f00; color: white; }
+.solar-plexus { background-color: #ffff00; color: black; }
+.heart { background-color: #00ff00; color: black; }
+.throat { background-color: #00ffff; color: black; }
+.third-eye { background-color: #0000ff; color: white; }
+.crown { background-color: #8b00ff; color: white; }
+
+/* And that your buttons have these classes applied */
