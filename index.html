@@ -198,5 +198,20 @@
             });
         });
     </script>
+    // Add this to your JavaScript
+document.getElementById('deleteButton').addEventListener('click', function() {
+  // Clear the audio element
+  document.getElementById('audioPlayback').src = '';
+  
+  // Hide the audio player if visible
+  document.getElementById('audioPlayback').style.display = 'none';
+  
+  // Reset any recording indicators
+  document.getElementById('recordButton').disabled = false;
+  document.getElementById('stopButton').disabled = true;
+  
+  // Optional: Show confirmation message
+  alert('Recording deleted. You can record a new one.');
+});
 </body>
 </html>
