@@ -1,0 +1,108 @@
+/* Base styles */
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  color: #fff;
+  background-color: #121212;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Header styles */
+header {
+  text-align: center;
+  padding: 20px 0;
+}
+
+h1, h2, h3 {
+  margin-top: 0;
+}
+
+/* Chakra buttons section */
+.chakra-buttons-container {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.chakra-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 5px;
+}
+
+.chakra-button {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 3px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.chakra-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.chakra-image {
+  width: 30px;
+  height: 30px;
+  max-width: 30px;
+  max-height: 30px;
+  object-fit: contain;
+}
+
+.chakra-name {
+  font-size: 10px;
+  margin-top: 3px;
+  color: #fff;
+}
+
+/* Body map section */
+.chakra-body-map-container {
+  margin: 20px auto;
+  text-align: center;
+  max-width: 200px;
+  background: rgba(0,0,0,0.3);
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.chakra-body-map {
+  position: relative;
+  margin: 0 auto;
+}
+
+#bodyMapImage {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 5px;
+}
+
+/* Meditation content */
+.meditation-content {
+  background: rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  margin-top: 40px;
+  padding: 20px;
+  font-size: 0.8em;
+  color: rgba(255, 255, 255, 0.6);
+}
