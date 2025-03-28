@@ -964,3 +964,84 @@ body {
 #deleteButton:hover {
   background: rgba(255, 0, 0, 0.5);
 }
+/* Chakra Buttons Container */
+.chakra-buttons-container {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.chakra-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+/* Individual Chakra Button Styling */
+.chakra-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.chakra-button:hover {
+  transform: scale(1.1);
+}
+
+.chakra-button.active {
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+/* Chakra Images */
+.chakra-image {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-bottom: 5px;
+  transition: all 0.3s ease;
+}
+
+/* Chakra Names */
+.chakra-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: white;
+  margin-top: 5px;
+}
+
+/* Individual Chakra Button Styling */
+#root-button:hover .chakra-image {
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.7);
+}
+
+#sacral-button:hover .chakra-image {
+  box-shadow: 0 0 15px rgba(255, 127, 0, 0.7);
+}
+
+#solar-plexus-button:hover .chakra-image {
+  box-shadow: 0 0 15px rgba(255, 255, 0, 0.7);
+}
+
+#heart-button:hover .chakra-image {
+  box-shadow: 0 0 15px rgba(0, 255, 0, 0.7);
+}
+
+#throat-button:hover .chakra-image {
+  box-shadow: 0 0 15px rgba(0, 191, 255, 0.7);
+}
+
+#third-eye-button:hover .chakra-image {
+  box-shadow: 0 0 15px rgba(75, 0, 130, 0.7);
+}
+
+#crown-button:hover .chakra-image {
+  box-shadow: 0 0 15px rgba(128, 0, 128, 0.7);
+}
