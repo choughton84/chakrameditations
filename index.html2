@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chakra Meditations</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Chakra Meditations</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#meditations">Meditations</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h2>Welcome to Chakra Meditations</h2>
+            <p>Discover balance and harmony through guided chakra meditations</p>
+            <a href="#meditations" class="btn">Start Meditating</a>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <h2>About Chakra Meditations</h2>
+        <p>Chakra Meditations offers guided practices to help you balance and align your energy centers. Our meditations are designed to promote healing, self-awareness, and spiritual growth.</p>
+    </section>
+
+    <section id="meditations" class="meditations">
+        <h2>Chakra Meditations</h2>
+        <div class="chakra-buttons">
+            <button class="chakra-btn root" onclick="showMeditation('root')">Root</button>
+            <button class="chakra-btn sacral" onclick="showMeditation('sacral')">Sacral</button>
+            <button class="chakra-btn solar-plexus" onclick="showMeditation('solar-plexus')">Solar Plexus</button>
+            <button class="chakra-btn heart" onclick="showMeditation('heart')">Heart</button>
+            <button class="chakra-btn throat" onclick="showMeditation('throat')">Throat</button>
+            <button class="chakra-btn third-eye" onclick="showMeditation('third-eye')">Third Eye</button>
+            <button class="chakra-btn crown" onclick="showMeditation('crown')">Crown</button>
+        </div>
+        
+        <button id="recordButton" class="record-btn">Record Meditation</button>
+
+        <div id="root-meditation" class="meditation-container">
+            <h3>Root Chakra Meditation</h3>
+            <p>The Root Chakra is located at the base of the spine and is associated with feelings of safety, security, and groundedness.</p>
+            <p>Meditation: Focus on your connection to the earth. Visualize roots extending from the base of your spine deep into the ground, anchoring you and providing stability.</p>
+            <p>While laying down, closing your eyes. Focus on your breathing and create an awareness within your body of where your awareness is. Bring your awareness to your base if it isn't there already. Become aware of what you are seeing in your root chakra. What are you wanting to express? Embracing the feeling that arises within you, begin to feel confident with your desires. Knowing you can pursue them with passion. Now ground this feeling within you as a true foundational reality.</p>
+        </div>
+
+        <div id="sacral-meditation" class="meditation-container">
+            <h3>Sacral Chakra Meditation</h3>
+            <p>The Sacral Chakra is located in the lower abdomen and is associated with creativity, pleasure, and emotional well-being.</p>
+            <p>Meditation: Place your hands on your lower belly. Visualize a warm, orange light filling this area. Allow yourself to feel emotions fully without judgment.</p>
+            <p>While laying down, closing your eyes. Focus on your breathing and create an awareness within your body of where your awareness is. Bring your awareness to your sacral chakra if it isn't there already. Become aware of what you are seeing in your sacral chakra. What are you wanting to express? Embracing the feeling that arises within you, begin to feel confident with your desires. Knowing you can pursue them with passion. Now ground this feeling within you as a true foundational reality.</p>
+        </div>
+
+        <div id="solar-plexus-meditation" class="meditation-container">
+            <h3>Solar Plexus Chakra Meditation</h3>
+            <p>The Solar Plexus Chakra is located in the upper abdomen and is associated with personal power, confidence, and self-esteem.</p>
+            <p>Meditation: Focus on your breath moving in and out of your upper abdomen. Visualize a bright yellow light growing stronger with each breath, empowering you.</p>
+            <p>While laying down, closing your eyes. Focus on your breathing and create an awareness within your body of where your awareness is. Bring your awareness to your solar plexus if it isn't there already. Become aware of what you are seeing in your solar plexus chakra. What are you wanting to express? Embracing the feeling that arises within you, begin to feel confident with your desires. Knowing you can pursue them with passion. Now ground this feeling within you as a true foundational reality.</p>
+        </div>
+
+        <div id="heart-meditation" class="meditation-container">
+            <h3>Heart Chakra Meditation</h3>
+            <p>The Heart Chakra is located in the center of the chest and is associated with love, compassion, and connection.</p>
+            <p>Meditation: Place your hands over your heart. Breathe deeply and imagine a green light expanding with each breath, filling you with love and compassion for yourself and others.</p>
+            <p>While laying down, closing your eyes. Focus on your breathing and create an awareness within your body of where your awareness is. Bring your awareness to your heart if it isn't there already. Become aware of what you are seeing in your heart chakra. What are you wanting to express? Embracing the feeling that arises within you, begin to feel confident with your desires. Knowing you can pursue them with passion. Now ground this feeling within you as a true foundational reality.</p>
+        </div>
+
+        <div id="throat-meditation" class="meditation-container">
+            <h3>Throat Chakra Meditation</h3>
+            <p>The Throat Chakra is located in the throat and is associated with communication, self-expression, and speaking your truth.</p>
+            <p>Meditation: Gently touch your throat. Visualize a blue light glowing there, clearing any blockages that prevent you from expressing yourself authentically.</p>
+            <p>While laying down, closing your eyes. Focus on your breathing and create an awareness within your body of where your awareness is. Bring your awareness to your throat if it isn't there already. Become aware of what you are seeing in your throat chakra. What are you wanting to express? Embracing the feeling that arises within you, begin to feel confident with your desires. Knowing you can pursue them with passion. Now ground this feeling within you as a true foundational reality.</p>
+        </div>
+
+        <div id="third-eye-meditation" class="meditation-container">
+            <h3>Third Eye Chakra Meditation</h3>
+            <p>The Third Eye Chakra is located in the center of the forehead and is associated with intuition, insight, and spiritual awareness.</p>
+            <p>Meditation: Focus your attention on the space between your eyebrows. Visualize an indigo light illuminating this area, enhancing your intuition and inner wisdom.</p>
+            <p>While laying down, closing your eyes. Focus on your breathing and create an awareness within your body of where your awareness is. Bring your awareness to your third eye if it isn't there already. Become aware of what you are seeing in your third eye chakra. What are you wanting to express? Embracing the feeling that arises within you, begin to feel confident with your desires. Knowing you can pursue them with passion. Now ground this feeling within you as a true foundational reality.</p>
+        </div>
+
+        <div id="crown-meditation" class="meditation-container">
+            <h3>Crown Chakra Meditation</h3>
+            <p>The Crown Chakra is located at the top of the head and is associated with spiritual connection, enlightenment, and higher consciousness.</p>
+            <p>Meditation: Bring your awareness to the top of your head. Imagine a violet or white light entering through your crown and filling your entire body with divine energy.</p>
+            <p>While laying down, closing your eyes. Focus on your breathing and create an awareness within your body of where your awareness is. Bring your awareness to your crown if it isn't there already. Become aware of what you are seeing in your crown chakra. What are you wanting to express? Embracing the feeling that arises within you, begin to feel confident with your desires. Knowing you can pursue them with passion. Now ground this feeling within you as a true foundational reality.</p>
+        </div>
+
+        <div id="recordingContainer"></div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2>Contact Us</h2>
+        <p>Have questions or feedback? Reach out to us!</p>
+        <form>
+            <input type="text" placeholder="Name">
+            <input type="email" placeholder="Email">
+            <textarea placeholder="Message"></textarea>
+            <button type="submit">Send</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Chakra Meditations. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Function to show selected meditation
+        function showMeditation(chakraType) {
+            // Hide all meditation containers
+            const containers = document.querySelectorAll('.meditation-container');
+            containers.forEach(container => {
+                container.style.display = 'none';
+            });
+            
+            // Show the selected meditation container
+            const selectedContainer = document.getElementById(chakraType + '-meditation');
+            if (selectedContainer) {
+                selectedContainer.style.display = 'block';
+            }
+        }
+
+        // Audio recording variables
+        let mediaRecorder;
+        let audioChunks = [];
+        let audioBlob;
+        let audioUrl;
+        let audio;
+
+        // Set up recording functionality
+        document.getElementById('recordButton').addEventListener('click', function() {
+            if (this.textContent === 'Record Meditation') {
+                startRecording();
+            } else {
+                stopRecording();
+            }
+        });
+
+        async function startRecording() {
+            audioChunks = [];
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+                mediaRecorder = new MediaRecorder(stream);
+                
+                mediaRecorder.ondataavailable = (event) => {
+                    audioChunks.push(event.data);
+                };
+                
+                mediaRecorder.onstop = () => {
+                    audioBlob = new Blob(audioChunks, { type: 'audio/wav' });
+                    audioUrl = URL.createObjectURL(audioBlob);
+                    
+                    // Create audio player
+                    const audioPlayer = document.createElement('audio');
+                    audioPlayer.controls = true;
+                    audioPlayer.src = audioUrl;
+                    
+                    const recordingContainer = document.getElementById('recordingContainer');
+                    recordingContainer.innerHTML = '';
+                    recordingContainer.appendChild(audioPlayer);
+                };
+                
+                mediaRecorder.start();
+                document.getElementById('recordButton').textContent = 'Stop Recording';
+            } catch (err) {
+                console.error('Error accessing microphone:', err);
+                alert('Could not access microphone. Please check permissions.');
+            }
+        }
+
+        function stopRecording() {
+            if (mediaRecorder && mediaRecorder.state !== 'inactive') {
+                mediaRecorder.stop();
+                document.getElementById('recordButton').textContent = 'Record Meditation';
+            }
+        }
+
+        // Hide all meditation containers initially except the first one
+        document.addEventListener('DOMContentLoaded', function() {
+            const containers = document.querySelectorAll('.meditation-container');
+            containers.forEach((container, index) => {
+                if (index > 0) {
+                    container.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
