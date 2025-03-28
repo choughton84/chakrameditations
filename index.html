@@ -4,22 +4,80 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chakra Healing Affirmation Journal</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: #6a0dad;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .chakra-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .chakra-item {
+            margin-bottom: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        
+        .chakra-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .crown { background-color: #a682ff; }
+        .third-eye { background-color: #6a5acd; }
+        .throat { background-color: #4ca6ff; }
+        .heart { background-color: #4caf50; }
+        .solar-plexus { background-color: #ffd700; }
+        .sacral { background-color: #ff7f50; }
+        .root { background-color: #ff4040; }
+        
+        .chakra-info {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            border-left: 5px solid #6a0dad;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
         <h1>Chakra Healing Affirmation Journal</h1>
         
-        <div class="body-map-container">
-            <img src="body-map.jpg" alt="Body Map" class="body-map">
-            <button class="chakra-button crown" onclick="showChakraInfo('crown')"></button>
-            <button class="chakra-button third-eye" onclick="showChakraInfo('third-eye')"></button>
-            <button class="chakra-button throat" onclick="showChakraInfo('throat')"></button>
-            <button class="chakra-button heart" onclick="showChakraInfo('heart')"></button>
-            <button class="chakra-button solar-plexus" onclick="showChakraInfo('solar-plexus')"></button>
-            <button class="chakra-button sacral" onclick="showChakraInfo('sacral')"></button>
-            <button class="chakra-button root" onclick="showChakraInfo('root')"></button>
-        </div>
+        <p>Click on a chakra to view information and affirmations:</p>
+        
+        <ul class="chakra-list">
+            <li class="chakra-item crown" onclick="showChakraInfo('crown')">Crown Chakra (Sahasrara)</li>
+            <li class="chakra-item third-eye" onclick="showChakraInfo('third-eye')">Third Eye Chakra (Ajna)</li>
+            <li class="chakra-item throat" onclick="showChakraInfo('throat')">Throat Chakra (Vishuddha)</li>
+            <li class="chakra-item heart" onclick="showChakraInfo('heart')">Heart Chakra (Anahata)</li>
+            <li class="chakra-item solar-plexus" onclick="showChakraInfo('solar-plexus')">Solar Plexus Chakra (Manipura)</li>
+            <li class="chakra-item sacral" onclick="showChakraInfo('sacral')">Sacral Chakra (Svadhisthana)</li>
+            <li class="chakra-item root" onclick="showChakraInfo('root')">Root Chakra (Muladhara)</li>
+        </ul>
         
         <div id="chakra-info-display" class="chakra-info" style="display: none;">
             <h2 id="chakra-title"></h2>
