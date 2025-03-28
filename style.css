@@ -250,3 +250,63 @@ button:disabled {
 .chakra-point:hover .chakra-circle {
   box-shadow: 0 0 20px rgba(255, 255, 255, 0.9);
 }
+<section class="chakra-visualization-container">
+    <h2>Interactive Chakra Map</h2>
+    <p>Click on each chakra to learn more about its properties and affirmations.</p>
+    
+    <div class="chakra-visualization">
+        <!-- Crown Chakra -->
+        <div class="chakra-point crown-chakra" onclick="showChakraInfo('crown')">
+            <div class="chakra-circle">
+                <img src="images/crown-chakra.png" alt="Crown Chakra" class="chakra-image">
+            </div>
+        </div>
+        
+        <!-- Third Eye Chakra -->
+        <div class="chakra-point thirdeye-chakra" onclick="showChakraInfo('third-eye')">
+            <div class="chakra-circle">
+                <img src="images/third-eye-chakra.png" alt="Third Eye Chakra" class="chakra-image">
+            </div>
+        </div>
+        
+        <!-- Throat Chakra -->
+        <div class="chakra-point throat-chakra" onclick="showChakraInfo('throat')">
+            <div class="chakra-circle">
+                <img src="images/throat-chakra.png" alt="Throat Chakra" class="chakra-image">
+            </div>
+        </div>
+        
+        <!-- Heart Chakra -->
+        <div class="chakra-point heart-chakra" onclick="showChakraInfo('heart')">
+            <div class="chakra-circle">
+                <img src="images/heart-chakra.png" alt="Heart Chakra" class="chakra-image">
+            </div>
+        </div>
+        
+        <!-- Solar Plexus Chakra -->
+        <div class="chakra-point solar-chakra" onclick="showChakraInfo('solar-plexus')">
+            <div class="chakra-circle">
+                <img src="images/solar-plexus-chakra.png" alt="Solar Plexus Chakra" class="chakra-image">
+            </div>
+        </div>
+        
+        <!-- Sacral Chakra -->
+        <div class="chakra-point sacral-chakra" onclick="showChakraInfo('sacral')">
+            <div class="chakra-circle">
+                <img src="images/sacral-chakra.png" alt="Sacral Chakra" class="chakra-image">
+            </div>
+        </div>
+        
+        <!-- Root Chakra -->
+        <div class="chakra-point root-chakra" onclick="showChakraInfo('root')">
+            <div class="chakra-circle">
+                <img src="images/root-chakra.png" alt="Root Chakra" class="chakra-image">
+            </div>
+        </div>
+    </div>
+    
+    <div id="chakra-info-display">
+        <h3>Select a chakra to learn more</h3>
+        <p>Click on any chakra in the visualization above to see its description and affirmation.</p>
+    </div>
+</section>
