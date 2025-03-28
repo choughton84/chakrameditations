@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chakra Meditation Journal</title>
+    <title>Chakra Meditations</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
             margin: 0;
             padding: 0;
             background-color: #f5f5f5;
@@ -20,330 +21,470 @@
             padding: 1rem;
         }
         
-        nav {
-            background-color: #8a2be2;
-            padding: 0.5rem;
-            text-align: center;
-        }
-        
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 1rem;
-            padding: 0.5rem;
-        }
-        
-        nav a:hover {
-            background-color: #9370db;
-            border-radius: 5px;
-        }
-        
-        .container {
+        main {
             max-width: 1200px;
             margin: 0 auto;
             padding: 2rem;
         }
         
-        .chakra-container {
+        .chakra-buttons {
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-around;
-            margin-top: 2rem;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
         }
         
-        .chakra-card {
-            width: 200px;
-            margin: 1rem;
-            padding: 1rem;
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            transition: transform 0.3s ease;
-        }
-        
-        .chakra-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .chakra-card img {
-            width: 100px;
-            height: 100px;
-            margin-bottom: 1rem;
-        }
-        
-        .chakra-card h3 {
-            margin-top: 0;
-            color: #6a0dad;
-        }
-        
-        .journal-section {
-            margin-top: 3rem;
-            background-color: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        
-        textarea {
-            width: 100%;
-            height: 200px;
-            padding: 1rem;
-            margin-top: 1rem;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            resize: vertical;
-        }
-        
-        button {
-            background-color: #6a0dad;
-            color: white;
+        .chakra-button {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
             border: none;
-            padding: 0.5rem 1rem;
-            margin-top: 1rem;
-            border-radius: 5px;
             cursor: pointer;
+            transition: transform 0.3s ease;
+            background-size: cover;
+            background-position: center;
         }
         
-        button:hover {
-            background-color: #8a2be2;
+        .chakra-button:hover {
+            transform: scale(1.1);
         }
         
-        footer {
-            background-color: #6a0dad;
-            color: white;
-            text-align: center;
-            padding: 1rem;
-            margin-top: 2rem;
-        }
-        
-        .chakra-detail {
+        .chakra-content {
             display: none;
-            margin-top: 2rem;
-            background-color: white;
             padding: 2rem;
             border-radius: 10px;
+            background-color: white;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 2rem;
         }
         
-        .chakra-detail.active {
+        .chakra-content.active {
             display: block;
         }
         
-        .affirmation-list {
-            list-style-type: none;
-            padding: 0;
+        h2 {
+            color: #6a0dad;
+            border-bottom: 2px solid #6a0dad;
+            padding-bottom: 0.5rem;
         }
         
-        .affirmation-list li {
-            margin-bottom: 0.5rem;
-            padding: 0.5rem;
-            background-color: #f0e6ff;
+        h3 {
+            color: #444;
+            margin-top: 1.5rem;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background-color: #6a0dad;
+            color: white;
+            margin-top: 2rem;
+        }
+        
+        #meditation-section {
+            background-color: #f0f0f0;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-top: 2rem;
+            text-align: center;
+        }
+        
+        #timer-display {
+            font-size: 3rem;
+            margin: 1rem 0;
+            font-weight: bold;
+            color: #6a0dad;
+        }
+        
+        .timer-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .timer-button {
+            padding: 0.5rem 1rem;
+            border: none;
             border-radius: 5px;
+            background-color: #6a0dad;
+            color: white;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        
+        .timer-button:hover {
+            background-color: #8a2be2;
+        }
+        
+        #root-chakra-content {
+            border-left: 5px solid #ff0000;
+        }
+        
+        #sacral-chakra-content {
+            border-left: 5px solid #ff7f00;
+        }
+        
+        #solar-plexus-chakra-content {
+            border-left: 5px solid #ffff00;
+        }
+        
+        #heart-chakra-content {
+            border-left: 5px solid #00ff00;
+        }
+        
+        #throat-chakra-content {
+            border-left: 5px solid #0000ff;
+        }
+        
+        #third-eye-chakra-content {
+            border-left: 5px solid #4b0082;
+        }
+        
+        #crown-chakra-content {
+            border-left: 5px solid #9400d3;
+        }
+        
+        .meditation-instructions {
+            background-color: #f9f9f9;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+            border-left: 5px solid #6a0dad;
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Chakra Meditation Journal</h1>
-        <p>Explore, meditate, and journal your chakra healing journey</p>
+        <h1>Chakra Healing Meditations</h1>
     </header>
     
-    <nav>
-        <a href="#home">Home</a>
-        <a href="#chakras">Chakras</a>
-        <a href="#journal">Journal</a>
-        <a href="#about">About</a>
-    </nav>
-    
-    <div class="container" id="home">
-        <h2>Welcome to Your Chakra Healing Journey</h2>
-        <p>This interactive journal helps you explore the seven main chakras, practice meditation, and record your experiences and insights.</p>
-        
-        <div class="chakra-container" id="chakras">
-            <div class="chakra-card" onclick="showChakraDetail('root')">
-                <img src="./images/root-chakra.png" alt="Root Chakra">
-                <h3>Root Chakra</h3>
-                <p>Muladhara</p>
+    <main>
+        <section id="chakras">
+            <div class="chakra-buttons">
+                <button class="chakra-button" id="root-chakra" style="background-image: url('images/Root-Chakra.png');" onclick="showChakraContent('root-chakra-content')"></button>
+                <button class="chakra-button" id="sacral-chakra" style="background-image: url('images/Sacral-Chakra.png');" onclick="showChakraContent('sacral-chakra-content')"></button>
+                <button class="chakra-button" id="solar-plexus-chakra" style="background-image: url('images/Solar-Plexus-Chakra.png');" onclick="showChakraContent('solar-plexus-chakra-content')"></button>
+                <button class="chakra-button" id="heart-chakra" style="background-image: url('images/Heart-Chakra.png');" onclick="showChakraContent('heart-chakra-content')"></button>
+                <button class="chakra-button" id="throat-chakra" style="background-image: url('images/Throat-Chakra.png');" onclick="showChakraContent('throat-chakra-content')"></button>
+                <button class="chakra-button" id="third-eye-chakra" style="background-image: url('images/Third-Eye-Chakra.png');" onclick="showChakraContent('third-eye-chakra-content')"></button>
+                <button class="chakra-button" id="crown-chakra" style="background-image: url('images/Crown-Chakra.png');" onclick="showChakraContent('crown-chakra-content')"></button>
             </div>
             
-            <div class="chakra-card" onclick="showChakraDetail('sacral')">
-                <img src="./images/sacral-chakra.png" alt="Sacral Chakra">
-                <h3>Sacral Chakra</h3>
-                <p>Svadhisthana</p>
+            <div id="root-chakra-content" class="chakra-content">
+                <h2>Root Chakra (Muladhara)</h2>
+                
+                <h3>Creating an Awareness</h3>
+                <p>Focus your attention on the base of your spine. Feel a warm, red energy gathering here, connecting you to the earth. Notice any sensations of heaviness or lightness in this area.</p>
+                
+                <h3>Recognizing What You Are Seeing</h3>
+                <p>Visualize a vibrant red lotus flower or spinning wheel at the base of your spine. See roots extending from your body deep into the earth, providing stability and nourishment.</p>
+                
+                <h3>Expressing What You Are Feeling</h3>
+                <p>Acknowledge any emotions related to safety, security, or belonging. Are there feelings of fear, instability, or disconnection? Or do you feel grounded, secure, and present?</p>
+                
+                <h3>Embracing the Feeling as Your Own</h3>
+                <p>Accept whatever arises without judgment. If you feel unstable, recognize this as information, not a permanent state. If you feel grounded, embrace this strength.</p>
+                
+                <h3>Feeling Confident in Your Strength</h3>
+                <p>Affirm: "I am safe and secure in my body. I trust in the support of the earth beneath me. My needs are met abundantly."</p>
+                
+                <h3>Stable Within Your Desires/Passion</h3>
+                <p>Connect with your fundamental desire to exist and thrive. Feel passionate about creating a stable foundation for your spiritual growth.</p>
+                
+                <h3>Knowing This is Grounded in Reality</h3>
+                <p>Your connection to earth energy is real and tangible. The stability you create here supports all other aspects of your being and spiritual journey.</p>
+                
+                <div class="meditation-instructions">
+                    <h3>Root Chakra Meditation</h3>
+                    <p>While laying down, closing your eyes. Focus on your breathing and create an awareness within your body of where your awareness is. Bring your awareness to the base of your spine. Become aware of what you are seeing in your mind's eye. What feelings of security and stability are you wanting to express? Embracing the feeling that arises within you, begin to feel confident with your foundation. Knowing you can build upon this solid base with passion. Now ground this feeling within you as a true foundational reality.</p>
+                </div>
             </div>
             
-            <div class="chakra-card" onclick="showChakraDetail('solar')">
-                <img src="./images/solar-chakra.png" alt="Solar Plexus Chakra">
-                <h3>Solar Plexus Chakra</h3>
-                <p>Manipura</p>
+            <div id="sacral-chakra-content" class="chakra-content">
+                <h2>Sacral Chakra (Svadhisthana)</h2>
+                
+                <h3>Creating an Awareness</h3>
+                <p>Bring your attention to your lower abdomen, below the navel. Feel a warm, orange glow emanating from this center. Notice any sensations of fluidity or restriction.</p>
+                
+                <h3>Recognizing What You Are Seeing</h3>
+                <p>Visualize a bright orange crescent moon or flowing water in this area. See this energy moving like gentle waves, nurturing your creativity and emotions.</p>
+                
+                <h3>Expressing What You Are Feeling</h3>
+                <p>Acknowledge emotions related to pleasure, creativity, or relationships. Notice any feelings of guilt, shame, or emotional numbness, as well as joy, passion, or sensuality.</p>
+                
+                <h3>Embracing the Feeling as Your Own</h3>
+                <p>Accept your emotional nature as a gift. Your feelings are valid messengers, not distractions. Embrace both the comfortable and uncomfortable emotions.</p>
+                
+                <h3>Feeling Confident in Your Strength</h3>
+                <p>Affirm: "I honor my desires and emotions. I allow pleasure and creativity to flow freely through me. I deserve joy and connection."</p>
+                
+                <h3>Stable Within Your Desires/Passion</h3>
+                <p>Connect with your passion for creation and meaningful relationships. Feel the life-giving energy of your desires without attachment to outcomes.</p>
+                
+                <h3>Knowing This is Grounded in Reality</h3>
+                <p>Your creative and emotional expression is a necessary part of being human. This energy creates tangible beauty and connection in your life and others'.</p>
+                
+                <div class="meditation-instructions">
+                    <h3>Sacral Chakra Meditation</h3>
+                    <p>While laying down, closing your eyes. Focus on your breathing and create an awareness within your body of where your awareness is. Bring your awareness to your lower abdomen. Become aware of what you are seeing in your mind's eye. What creative expressions or emotional connections are you wanting to nurture? Embracing the feeling that arises within you, begin to feel confident with your desires. Knowing you can pursue them with passion and fluidity. Now ground this feeling within you as a true foundational reality.</p>
+                </div>
             </div>
             
-            <div class="chakra-card" onclick="showChakraDetail('heart')">
-                <img src="./images/heart-chakra.png" alt="Heart Chakra">
-                <h3>Heart Chakra</h3>
-                <p>Anahata</p>
+            <div id="solar-plexus-chakra-content" class="chakra-content">
+                <h2>Solar Plexus Chakra (Manipura)</h2>
+                
+                <h3>Creating an Awareness</h3>
+                <p>Focus on the area above your navel and below your ribs. Feel a bright yellow sunburst of energy radiating from this center. Notice sensations of warmth or coolness.</p>
+                
+                <h3>Recognizing What You Are Seeing</h3>
+                <p>Visualize a radiant yellow sun or spinning wheel of light. See this energy expanding outward, empowering you and defining your unique place in the world.</p>
+                
+                <h3>Expressing What You Are Feeling</h3>
+                <p>Acknowledge emotions related to personal power, confidence, or self-worth. Notice any feelings of powerlessness, shame, or overcontrolling tendencies, as well as confidence, clarity, or purpose.</p>
+                
+                <h3>Embracing the Feeling as Your Own</h3>
+                <p>Accept your relationship with power as part of your journey. Whether you feel strong or vulnerable in this moment, both states offer wisdom.</p>
+                
+                <h3>Feeling Confident in Your Strength</h3>
+                <p>Affirm: "I honor my personal power. I am confident in my abilities. I trust my decisions and take action aligned with my highest good."</p>
+                
+                <h3>Stable Within Your Desires/Passion</h3>
+                <p>Connect with your passion for achievement and self-expression. Feel determined to manifest your unique gifts without dominating others.</p>
+                
+                <h3>Knowing This is Grounded in Reality</h3>
+                <p>Your personal power creates tangible change in the world. Your confidence and clarity allow you to fulfill your divine purpose with integrity.</p>
+                
+                <div class="meditation-instructions">
+                    <h3>Solar Plexus Chakra Meditation</h3>
+                    <p>While laying down, closing your eyes. Focus on your breathing and create an awareness within your body of where your awareness is. Bring your awareness to your solar plexus region. Become aware of what you are seeing in your mind's eye. What aspects of personal power are you wanting to express? Embracing the feeling that arises within you, begin to feel confident with your inner strength. Knowing you can pursue your purpose with passion and determination. Now ground this feeling within you as a true foundational reality.</p>
+                </div>
             </div>
             
-            <div class="chakra-card" onclick="showChakraDetail('throat')">
-                <img src="./images/throat-chakra.png" alt="Throat Chakra">
-                <h3>Throat Chakra</h3>
-                <p>Vishuddha</p>
+            <div id="heart-chakra-content" class="chakra-content">
+                <h2>Heart Chakra (Anahata)</h2>
+                
+                <h3>Creating an Awareness</h3>
+                <p>Bring attention to the center of your chest. Feel a soothing green or pink light glowing here. Notice any sensations of openness or constriction.</p>
+                
+                <h3>Recognizing What You Are Seeing</h3>
+                <p>Visualize a beautiful emerald green lotus or rose opening in your chest. See this energy expanding outward, connecting you with all beings through invisible threads of light.</p>
+                
+                <h3>Expressing What You Are Feeling</h3>
+                <p>Acknowledge emotions related to love, compassion, or connection. Notice any feelings of grief, resentment, or isolation, as well as love, gratitude, or unity.</p>
+                
+                <h3>Embracing the Feeling as Your Own</h3>
+                <p>Accept your capacity for both giving and receiving love. Your heart's vulnerabilities are as sacred as its strengths. Embrace the full spectrum of your heart's experience.</p>
+                
+                <h3>Feeling Confident in Your Strength</h3>
+                <p>Affirm: "I am open to giving and receiving love. I forgive myself and others. I am worthy of compassion and connection."</p>
+                
+                <h3>Stable Within Your Desires/Passion</h3>
+                <p>Connect with your passion for harmony and healing relationships. Feel dedicated to creating oneness through understanding and acceptance.</p>
+                
+                <h3>Knowing This is Grounded in Reality</h3>
+                <p>Your heart's wisdom creates tangible healing in your life and others'. This unconditional love is the foundation for spiritual ascension and enlightenment.</p>
+                
+                <div class="meditation-instructions">
+                    <h3>Heart Chakra Meditation</h3>
+                    <p>While laying down, closing your eyes. Focus on your breathing and create an awareness within your body of where your awareness is. Bring your awareness to your heart center. Become aware of what you are seeing in your mind's eye. What expressions of love and compassion are you wanting to share? Embracing the feeling that arises within you, begin to feel confident with your capacity to love. Knowing you can create oneness with passion and openness. Now groun<div class="meditation-instructions">
+                    <h3>Heart Chakra Meditation</h3>
+                    <p>While laying down, closing your eyes. Focus on your breathing and create an awareness within your body of where your awareness is. Bring your awareness to your heart center. Become aware of what you are seeing in your mind's eye. What expressions of love and compassion are you wanting to share? Embracing the feeling that arises within you, begin to feel confident with your capacity to love. Knowing you can create oneness with passion and openness. Now ground this feeling within you as a true foundational reality.</p>
+                </div>
             </div>
             
-            <div class="chakra-card" onclick="showChakraDetail('third-eye')">
-                <img src="./images/third-eye-chakra.png" alt="Third Eye Chakra">
-                <h3>Third Eye Chakra</h3>
-                <p>Ajna</p>
+            <div id="throat-chakra-content" class="chakra-content">
+                <h2>Throat Chakra (Vishuddha)</h2>
+                
+                <h3>Creating an Awareness</h3>
+                <p>Focus on your throat area. Feel a cool blue light illuminating this center. Notice any sensations of openness or constriction when you breathe or swallow.</p>
+                
+                <h3>Recognizing What You Are Seeing</h3>
+                <p>Visualize a bright blue lotus or spinning wheel of light at your throat. See this energy vibrating with the power of sound and truth.</p>
+                
+                <h3>Expressing What You Are Feeling</h3>
+                <p>Acknowledge emotions related to self-expression, truth, or communication. Notice any feelings of being silenced, misunderstood, or fear of speaking, as well as clarity, authenticity, or creative expression.</p>
+                
+                <h3>Embracing the Feeling as Your Own</h3>
+                <p>Accept your voice as uniquely valuable. Your truth deserves expression, even when it feels vulnerable to share. Embrace both your eloquence and your hesitations.</p>
+                
+                <h3>Feeling Confident in Your Strength</h3>
+                <p>Affirm: "I express my truth with clarity and compassion. My voice matters. I listen to others and myself with respect."</p>
+                
+                <h3>Stable Within Your Desires/Passion</h3>
+                <p>Connect with your passion for authentic communication. Feel dedicated to expressing spiritual wisdom that helps others on their path to enlightenment.</p>
+                
+                <h3>Knowing This is Grounded in Reality</h3>
+                <p>Your authentic expression creates tangible understanding and connection. Your words have the power to heal, teach, and transform consciousness.</p>
+                
+                <div class="meditation-instructions">
+                    <h3>Throat Chakra Meditation</h3>
+                    <p>While laying down, closing your eyes. Focus on your breathing and create an awareness within your body of where your awareness is. Bring your awareness to your throat. Become aware of what you are seeing in your mind's eye. What truths are you wanting to express? Embracing the feeling that arises within you, begin to feel confident with your voice. Knowing you can communicate with passion and clarity. Now ground this feeling within you as a true foundational reality.</p>
+                </div>
             </div>
             
-            <div class="chakra-card" onclick="showChakraDetail('crown')">
-                <img src="./images/crown-chakra.png" alt="Crown Chakra">
-                <h3>Crown Chakra</h3>
-                <p>Sahasrara</p>
+            <div id="third-eye-chakra-content" class="chakra-content">
+                <h2>Third Eye Chakra (Ajna)</h2>
+                
+                <h3>Creating an Awareness</h3>
+                <p>Bring attention to the center of your forehead. Feel a deep indigo light glowing here. Notice any sensations of clarity or fogginess in your mind.</p>
+                
+                <h3>Recognizing What You Are Seeing</h3>
+                <p>Visualize an indigo lotus or eye opening at your forehead. See this energy expanding your perception beyond the physical world into realms of insight and vision.</p>
+                
+                <h3>Expressing What You Are Feeling</h3>
+                <p>Acknowledge emotions related to intuition, insight, or perception. Notice any feelings of confusion, doubt, or overthinking, as well as clarity, wisdom, or visionary understanding.</p>
+                
+                <h3>Embracing the Feeling as Your Own</h3>
+                <p>Accept your intuitive nature as a gift. Your inner visions and insights are valuable guidance, even when they defy logic. Embrace both your clarity and your questions.</p>
+                
+                <h3>Feeling Confident in Your Strength</h3>
+                <p>Affirm: "I trust my intuition and inner wisdom. I see beyond illusion to truth. My perception is clear and insightful."</p>
+                
+                <h3>Stable Within Your Desires/Passion</h3>
+                <p>Connect with your passion for spiritual vision and understanding. Feel dedicated to translating your inner visions into guidance that helps others ascend.</p>
+                
+                <h3>Knowing This is Grounded in Reality</h3>
+                <p>Your intuitive insights create tangible guidance for your path. Your visions can manifest as teachings, art, or innovations that elevate consciousness.</p>
+                
+                <div class="meditation-instructions">
+                    <h3>Third Eye Chakra Meditation</h3>
+                    <p>While laying down, closing your eyes. Focus on your breathing and create an awareness within your body of where your awareness is. Bring your awareness to your forehead. Become aware of what you are seeing in your mind's eye. What visions or intuitive insights are you wanting to express? Embracing the feeling that arises within you, begin to feel confident with your inner sight. Knowing you can perceive with passion and clarity. Now ground this feeling within you as a true foundational reality.</p>
+                </div>
             </div>
-        </div>
-        
-        <div id="root-detail" class="chakra-detail">
-            <h2>Root Chakra (Muladhara)</h2>
-            <p>The Root Chakra is located at the base of the spine and represents our foundation and feeling of being grounded.</p>
-            <h3>Associated with:</h3>
-            <ul>
-                <li>Survival instincts</li>
-                <li>Stability</li>
-                <li>Security</li>
-                <li>Basic needs (food, shelter, safety)</li>
-            </ul>
-            <h3>When balanced:</h3>
-            <p>You feel secure, stable, and confident in life.</p>
-            <h3>Affirmations:</h3>
-            <ul class="affirmation-list">
-                <li>I am safe and secure</li>
-                <li>I am grounded and centered</li>
-                <li>I have everything I need</li>
-                <li>I trust in the process of life</li>
-            </ul>
-            <h3>Meditation Focus:</h3>
-            <p>Visualize a strong red light at the base of your spine, connecting you to the earth.</p>
-            <div class="journal-section">
-                <h3>Journal Your Experience:</h3>
-                <textarea placeholder="Write about your Root Chakra meditation experience..."></textarea>
-                <button onclick="saveJournalEntry('root')">Save Entry</button>
+            
+            <div id="crown-chakra-content" class="chakra-content">
+                <h2>Crown Chakra (Sahasrara)</h2>
+                
+                <h3>Creating an Awareness</h3>
+                <p>Focus on the top of your head. Feel a vibrant violet or white light radiating here. Notice any sensations of lightness, expansion, or connection to something greater.</p>
+                
+                <h3>Recognizing What You Are Seeing</h3>
+                <p>Visualize a thousand-petaled lotus or fountain of light at the crown of your head. See this energy connecting you directly to divine consciousness and universal wisdom.</p>
+                
+                <h3>Expressing What You Are Feeling</h3>
+                <p>Acknowledge emotions related to spiritual connection, unity, or transcendence. Notice any feelings of separation, spiritual disconnection, or materialism, as well as bliss, oneness, or divine connection.</p>
+                
+                <h3>Embracing the Feeling as Your Own</h3>
+                <p>Accept your spiritual nature as your essence. Your connection to the divine is your birthright, even when it feels distant. Embrace both your moments of unity and your human limitations.</p>
+                
+                <h3>Feeling Confident in Your Strength</h3>
+                <p>Affirm: "I am one with divine consciousness. I am connected to all that is. My spiritual awareness expands beyond all limitations."</p>
+                
+                <h3>Stable Within Your Desires/Passion</h3>
+                <p>Connect with your passion for spiritual enlightenment and ascension. Feel dedicated to embodying divine consciousness and helping others recognize their own divinity.</p>
+                
+                <h3>Knowing This is Grounded in Reality</h3>
+                <p>Your spiritual connection creates tangible transformation in your life. Your alignment with divine consciousness manifests as grace, guidance, and enlightened action.</p>
+                
+                <div class="meditation-instructions">
+                    <h3>Crown Chakra Meditation</h3>
+                    <p>While laying down, closing your eyes. Focus on your breathing and create an awareness within your body of where your awareness is. Bring your awareness to the crown of your head. Become aware of what you are seeing in your mind's eye. What divine connection are you wanting to express? Embracing the feeling that arises within you, begin to feel confident with your spiritual nature. Knowing you can embody divine consciousness with passion and grace. Now ground this feeling within you as a true foundational reality.</p>
+                </div>
             </div>
-        </div>
+        </section>
         
-        <!-- Similar sections for other chakras -->
-        <div id="sacral-detail" class="chakra-detail">
-            <h2>Sacral Chakra (Svadhisthana)</h2>
-            <p>The Sacral Chakra is located in the lower abdomen and is associated with creativity and emotional well-being.</p>
-            <!-- Content similar to root chakra -->
-        </div>
-        
-        <div id="solar-detail" class="chakra-detail">
-            <h2>Solar Plexus Chakra (Manipura)</h2>
-            <p>The Solar Plexus Chakra is located in the upper abdomen and governs personal power and confidence.</p>
-            <!-- Content similar to root chakra -->
-        </div>
-        
-        <div id="heart-detail" class="chakra-detail">
-            <h2>Heart Chakra (Anahata)</h2>
-            <p>The Heart Chakra is located at the center of the chest and is associated with love and compassion.</p>
-            <!-- Content similar to root chakra -->
-        </div>
-        
-        <div id="throat-detail" class="chakra-detail">
-            <h2>Throat Chakra (Vishuddha)</h2>
-            <p>The Throat Chakra is located in the throat and governs communication and self-expression.</p>
-            <!-- Content similar to root chakra -->
-        </div>
-        
-        <div id="third-eye-detail" class="chakra-detail">
-            <h2>Third Eye Chakra (Ajna)</h2>
-            <p>The Third Eye Chakra is located on the forehead and is associated with intuition and insight.</p>
-            <!-- Content similar to root chakra -->
-        </div>
-        
-        <div id="crown-detail" class="chakra-detail">
-            <h2>Crown Chakra (Sahasrara)</h2>
-            <p>The Crown Chakra is located at the top of the head and represents spiritual connection and enlightenment.</p>
-            <!-- Content similar to root chakra -->
-        </div>
-        
-        <div class="journal-section" id="journal">
-            <h2>Meditation Journal</h2>
-            <p>Use this space to record your general meditation experiences, insights, and progress.</p>
-            <textarea placeholder="Write about your meditation journey..."></textarea>
-            <button onclick="saveGeneralJournal()">Save Journal Entry</button>
-        </div>
-        
-        <div id="about">
-            <h2>About This Journal</h2>
-            <p>This Chakra Meditation Journal was created to help you on your spiritual journey. By working with your chakras, you can achieve greater balance, healing, and spiritual growth.</p>
-            <p>Regular meditation and journaling can help you identify blockages in your energy centers and track your progress as you work to clear and balance them.</p>
-        </div>
-    </div>
+        <section id="meditation-section">
+            <h2>Meditation Timer</h2>
+            <p>Set your meditation duration and follow the guided practice</p>
+            
+            <div id="timer-display">10:00</div>
+            
+            <div class="timer-buttons">
+                <button class="timer-button" onclick="setTimer(5)">5 Min</button>
+                <button class="timer-button" onclick="setTimer(10)">10 Min</button>
+                <button class="timer-button" onclick="setTimer(15)">15 Min</button>
+                <button class="timer-button" onclick="setTimer(20)">20 Min</button>
+                <button class="timer-button" id="start-timer">Start</button>
+                <button class="timer-button" id="pause-timer">Pause</button>
+                <button class="timer-button" id="reset-timer">Reset</button>
+            </div>
+            
+            <div class="meditation-instructions">
+                <h3>Complete Chakra Meditation</h3>
+                <p>While laying down, closing your eyes. Focus on your breathing and create an awareness within your body of where your awareness is. Bring your awareness to your brain if it isn't there already. Become aware of what you are seeing in your 3rd eye. What are you wanting to express? Embracing the feeling that arises within you, begin to feel confident with your desires. Knowing you can pursue them with passion. Now ground this feeling within you as a true foundational reality.</p>
+            </div>
+        </section>
+    </main>
     
     <footer>
-        <p>&copy; 2023 Chakra Meditation Journal | Created by Cristina Houghton</p>
+        <p>&copy; 2023 Chakra Healing Affirmation Journal by Cristina Houghton</p>
     </footer>
-
+    
     <script>
-        function showChakraDetail(chakra) {
-            // Hide all chakra details
-            const allDetails = document.querySelectorAll('.chakra-detail');
-            allDetails.forEach(detail => {
-                detail.classList.remove('active');
+        // Function to show selected chakra content
+        function showChakraContent(contentId) {
+            // Hide all chakra content sections
+            const allContent = document.querySelectorAll('.chakra-content');
+            allContent.forEach(content => {
+                content.classList.remove('active');
             });
             
-            // Show the selected chakra detail
-            const selectedDetail = document.getElementById(`${chakra}-detail`);
-            if (selectedDetail) {
-                selectedDetail.classList.add('active');
-                // Scroll to the detail section
-                selectedDetail.scrollIntoView({ behavior: 'smooth' });
+            // Show the selected content
+            document.getElementById(contentId).classList.add('active');
+        }
+        
+        // Timer functionality
+        let timerInterval;
+        let minutes = 10;
+        let seconds = 0;
+        let isPaused = true;
+        
+        function setTimer(mins) {
+            minutes = mins;
+            seconds = 0;
+            updateTimerDisplay();
+            resetTimer();
+        }
+        
+        function updateTimerDisplay() {
+            const displayMins = minutes < 10 ? '0' + minutes : minutes;
+            const displaySecs = seconds < 10 ? '0' + seconds : seconds;
+            document.getElementById('timer-display').textContent = `${displayMins}:${displaySecs}`;
+        }
+        
+        function startTimer() {
+            if (isPaused) {
+                isPaused = false;
+                timerInterval = setInterval(function() {
+                    if (seconds === 0) {
+                        if (minutes === 0) {
+                            clearInterval(timerInterval);
+                            alert('Meditation complete!');
+                            resetTimer();
+                            return;
+                        }
+                        minutes--;
+                        seconds = 59;
+                    } else {
+                        seconds--;
+                    }
+                    updateTimerDisplay();
+                }, 1000);
             }
         }
         
-        function saveJournalEntry(chakra) {
-            const textarea = document.querySelector(`#${chakra}-detail textarea`);
-            if (textarea && textarea.value.trim() !== '') {
-                alert('Journal entry saved!');
-                // In a real application, you would save this to localStorage or a database
-                localStorage.setItem(`${chakra}-journal`, textarea.value);
-            } else {
-                alert('Please write something before saving.');
-            }
+        function pauseTimer() {
+            clearInterval(timerInterval);
+            isPaused = true;
         }
         
-        function saveGeneralJournal() {
-            const textarea = document.querySelector('#journal textarea');
-            if (textarea && textarea.value.trim() !== '') {
-                alert('Journal entry saved!');
-                // In a real application, you would save this to localStorage or a database
-                localStorage.setItem('general-journal', textarea.value);
-            } else {
-                alert('Please write something before saving.');
-            }
+        function resetTimer() {
+            pauseTimer();
+            updateTimerDisplay();
         }
         
-        // Load any saved journal entries when the page loads
-        window.onload = function() {
-            const chakras = ['root', 'sacral', 'solar', 'heart', 'throat', 'third-eye', 'crown'];
-            
-            chakras.forEach(chakra => {
-                const savedEntry = localStorage.getItem(`${chakra}-journal`);
-                const textarea = document.querySelector(`#${chakra}-detail textarea`);
-                if (savedEntry && textarea) {
-                    textarea.value = savedEntry;
-                }
-            });
-            
-            const generalJournal = localStorage.getItem('general-journal');
-            const generalTextarea = document.querySelector('#journal textarea');
-            if (generalJournal && generalTextarea) {
-                generalTextarea.value = generalJournal;
-            }
-        };
+        // Event listeners for timer buttons
+        document.getElementById('start-timer').addEventListener('click', startTimer);
+        document.getElementById('pause-timer').addEventListener('click', pauseTimer);
+        document.getElementById('reset-timer').addEventListener('click', resetTimer);
+        
+        // Initialize the page with Root Chakra content visible
+        document.addEventListener('DOMContentLoaded', function() {
+            showChakraContent('root-chakra-content');
+            updateTimerDisplay();
+        });
     </script>
 </body>
 </html>
