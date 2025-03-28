@@ -111,16 +111,21 @@
   </div>
 
   <script>
-    function showChakraInfo(chakra) {
-      // Hide all info boxes first
-      const allInfoBoxes = document.querySelectorAll('.chakra-info');
-      allInfoBoxes.forEach(box => {
-        box.style.display = 'none';
-      });
-      
-      // Show the selected chakra's info
-      document.getElementById(chakra + '-info').style.display = 'block';
-    }
+  function showChakraInfo(chakra) {
+  // Hide all info boxes first
+  var allInfoBoxes = document.querySelectorAll('.chakra-info');
+  for (var i = 0; i < allInfoBoxes.length; i++) {
+    allInfoBoxes[i].style.display = 'none';
+  }
+  
+  // Show the selected chakra info
+  var selectedInfo = document.getElementById(chakra + '-info');
+  if (selectedInfo) {
+    selectedInfo.style.display = 'block';
+  } else {
+    console.error('Could not find info box with ID: ' + chakra + '-info');
+  }
+}
     
     function saveJournal() {
       alert("Journal entry saved successfully!");
