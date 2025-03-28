@@ -264,5 +264,42 @@ document.getElementById('deleteButton').addEventListener('click', function() {
   // Optional: Show confirmation message
   alert('Recording deleted. You can record a new one.');
 });
+    function selectChakra(chakra) {
+  // Remove active class from all buttons
+  document.querySelectorAll('.chakra-button').forEach(button => {
+    button.classList.remove('active');
+  });
+  
+  // Add active class to selected button
+  document.getElementById(chakra + '-button').classList.add('active');
+  
+  // Store selected chakra
+  selectedChakra = chakra;
+  
+  // Update meditation text based on selected chakra
+  updateMeditationText(chakra);
+  
+  // Show the meditation container
+  document.getElementById('meditation-container').style.display = 'block';
+  
+  // Scroll to meditation container
+  document.getElementById('meditation-container').scrollIntoView({
+    behavior: 'smooth'
+  });
+}
+
+function updateMeditationText(chakra) {
+  const meditationTexts = {
+    'root': "Focus on your Root Chakra at the base of your spine. Feel yourself grounded and secure. Affirm: 'I am safe and secure. I trust in the journey of life.'",
+    'sacral': "Bring awareness to your Sacral Chakra below your navel. Connect with your creativity and emotions. Affirm: 'I embrace my creativity and honor my feelings.'",
+    'solar-plexus': "Center on your Solar Plexus Chakra at your stomach. Feel your personal power and confidence. Affirm: 'I am confident in my abilities and worthy of success.'",
+    'heart': "Open your Heart Chakra at the center of your chest. Feel compassion and love flowing. Affirm: 'I give and receive love freely and openly.'",
+    'throat': "Focus on your Throat Chakra. Express your truth with clarity. Affirm: 'I speak my truth with confidence and communicate with clarity.'",
+    'third-eye': "Bring awareness to your Third Eye Chakra at your forehead. Enhance your intuition and vision. Affirm: 'I trust my intuition and am guided by my inner wisdom.'",
+    'crown': "Connect with your Crown Chakra at the top of your head. Feel your spiritual connection. Affirm: 'I am connected to divine wisdom and universal consciousness.'"
+  };
+  
+  document.getElementById('meditation-text').innerText = meditationTexts[chakra];
+}
 </body>
 </html>
