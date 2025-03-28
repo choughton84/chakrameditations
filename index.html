@@ -48,15 +48,52 @@
 
     <section id="meditations" class="meditations">
         <h2>Chakra Meditations</h2>
-        <div class="chakra-buttons">
-            <button class="chakra-btn root" onclick="showMeditation('root')">Root</button>
-            <button class="chakra-btn sacral" onclick="showMeditation('sacral')">Sacral</button>
-            <button class="chakra-btn solar-plexus" onclick="showMeditation('solar-plexus')">Solar Plexus</button>
-            <button class="chakra-btn heart" onclick="showMeditation('heart')">Heart</button>
-            <button class="chakra-btn throat" onclick="showMeditation('throat')">Throat</button>
-            <button class="chakra-btn third-eye" onclick="showMeditation('third-eye')">Third Eye</button>
-            <button class="chakra-btn crown" onclick="showMeditation('crown')">Crown</button>
-        </div>
+    <div class="chakra-buttons-container">
+  <h3>Select a Chakra</h3>
+  <div class="chakra-buttons">
+    <!-- Root Chakra -->
+    <button class="chakra-button" id="root-button" onclick="selectChakra('root')">
+      <img src="images/root-chakra.png" alt="Root Chakra" class="chakra-image">
+      <span class="chakra-name">Root</span>
+    </button>
+    
+    <!-- Sacral Chakra -->
+    <button class="chakra-button" id="sacral-button" onclick="selectChakra('sacral')">
+      <img src="images/sacral-chakra.png" alt="Sacral Chakra" class="chakra-image">
+      <span class="chakra-name">Sacral</span>
+    </button>
+    
+    <!-- Solar Plexus Chakra -->
+    <button class="chakra-button" id="solar-plexus-button" onclick="selectChakra('solar-plexus')">
+      <img src="images/solar-plexus-chakra.png" alt="Solar Plexus Chakra" class="chakra-image">
+      <span class="chakra-name">Solar Plexus</span>
+    </button>
+    
+    <!-- Heart Chakra -->
+    <button class="chakra-button" id="heart-button" onclick="selectChakra('heart')">
+      <img src="images/heart-chakra.png" alt="Heart Chakra" class="chakra-image">
+      <span class="chakra-name">Heart</span>
+    </button>
+    
+    <!-- Throat Chakra -->
+    <button class="chakra-button" id="throat-button" onclick="selectChakra('throat')">
+      <img src="images/throat-chakra.png" alt="Throat Chakra" class="chakra-image">
+      <span class="chakra-name">Throat</span>
+    </button>
+    
+    <!-- Third Eye Chakra -->
+    <button class="chakra-button" id="third-eye-button" onclick="selectChakra('third-eye')">
+      <img src="images/third-eye-chakra.png" alt="Third Eye Chakra" class="chakra-image">
+      <span class="chakra-name">Third Eye</span>
+    </button>
+    
+    <!-- Crown Chakra -->
+    <button class="chakra-button" id="crown-button" onclick="selectChakra('crown')">
+      <img src="images/crown-chakra.png" alt="Crown Chakra" class="chakra-image">
+      <span class="chakra-name">Crown</span>
+    </button>
+  </div>
+</div> </div>
         
         <button id="recordButton" class="record-btn">Record Meditation</button>
         <!-- Add this near your recording controls -->
