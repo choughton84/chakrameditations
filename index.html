@@ -86,67 +86,55 @@
             </div>
         </section>
     
-<section class="chakra-visualization-container">
-    <h2>Interactive Chakra Map</h2>
-    <p>Click on each chakra to learn more about its properties and affirmations.</p>
-    
+<!-- Chakra Visualization Section -->
+<div class="chakra-section">
+  <h2>Interactive Chakra Guide</h2>
+  <div class="chakra-container">
     <div class="chakra-visualization">
-        <!-- Crown Chakra -->
-        <div class="chakra-point crown-chakra" onclick="showChakraInfo('crown')">
-            <div class="chakra-circle">
-                <img src="images/crown-chakra.png" alt="Crown Chakra" class="chakra-image">
-            </div>
-        </div>
-        
-        <!-- Third Eye Chakra -->
-        <div class="chakra-point thirdeye-chakra" onclick="showChakraInfo('third-eye')">
-            <div class="chakra-circle">
-                <img src="images/third-eye-chakra.png" alt="Third Eye Chakra" class="chakra-image">
-            </div>
-        </div>
-        
-        <!-- Throat Chakra -->
-        <div class="chakra-point throat-chakra" onclick="showChakraInfo('throat')">
-            <div class="chakra-circle">
-                <img src="images/throat-chakra.png" alt="Throat Chakra" class="chakra-image">
-            </div>
-        </div>
-        
-        <!-- Heart Chakra -->
-        <div class="chakra-point heart-chakra" onclick="showChakraInfo('heart')">
-            <div class="chakra-circle">
-                <img src="images/heart-chakra.png" alt="Heart Chakra" class="chakra-image">
-            </div>
-        </div>
-        
-        <!-- Solar Plexus Chakra -->
-        <div class="chakra-point solar-chakra" onclick="showChakraInfo('solar-plexus')">
-            <div class="chakra-circle">
-                <img src="images/solar-plexus-chakra.png" alt="Solar Plexus Chakra" class="chakra-image">
-            </div>
-        </div>
-        
-        <!-- Sacral Chakra -->
-        <div class="chakra-point sacral-chakra" onclick="showChakraInfo('sacral')">
-            <div class="chakra-circle">
-                <img src="images/sacral-chakra.png" alt="Sacral Chakra" class="chakra-image">
-            </div>
-        </div>
-        
-        <!-- Root Chakra -->
-        <div class="chakra-point root-chakra" onclick="showChakraInfo('root')">
-            <div class="chakra-circle">
-                <img src="images/root-chakra.png" alt="Root Chakra" class="chakra-image">
-            </div>
-        </div>
+      <img src="images/body-map.png" alt="Body Map" class="body-silhouette">
+      
+      <!-- Crown Chakra -->
+      <div class="chakra-point crown-chakra" onclick="showChakraInfo('crown')">
+        <div class="chakra-circle violet"></div>
+      </div>
+      
+      <!-- Third Eye Chakra -->
+      <div class="chakra-point thirdeye-chakra" onclick="showChakraInfo('third-eye')">
+        <div class="chakra-circle indigo"></div>
+      </div>
+      
+      <!-- Throat Chakra -->
+      <div class="chakra-point throat-chakra" onclick="showChakraInfo('throat')">
+        <div class="chakra-circle blue"></div>
+      </div>
+      
+      <!-- Heart Chakra -->
+      <div class="chakra-point heart-chakra" onclick="showChakraInfo('heart')">
+        <div class="chakra-circle green"></div>
+      </div>
+      
+      <!-- Solar Plexus Chakra -->
+      <div class="chakra-point solar-chakra" onclick="showChakraInfo('solar-plexus')">
+        <div class="chakra-circle yellow"></div>
+      </div>
+      
+      <!-- Sacral Chakra -->
+      <div class="chakra-point sacral-chakra" onclick="showChakraInfo('sacral')">
+        <div class="chakra-circle orange"></div>
+      </div>
+      
+      <!-- Root Chakra -->
+      <div class="chakra-point root-chakra" onclick="showChakraInfo('root')">
+        <div class="chakra-circle red"></div>
+      </div>
     </div>
     
     <div id="chakra-info-display">
-        <h3>Select a chakra to learn more</h3>
-        <p>Click on any chakra in the visualization above to see its description and affirmation.</p>
+      <h3>Click on a chakra point to learn more</h3>
+      <p>Explore each chakra to discover its meaning and affirmations.</p>
     </div>
-</section>
-        
+  </div>
+</div>
         <section class="manifestation">
             <h2>Manifestation</h2>
             <p>As you complete this chakra journey, you align your entire energy system for powerful manifestation. Your visions become reality when all chakras work in harmony.</p>
@@ -345,6 +333,79 @@
             document.querySelector(`.${chakraClass}`).classList.add('active');
         }
     }
+</script>
+    <script>
+function showChakraInfo(chakraId) {
+  // Define chakra information
+  const chakraInfo = {
+    'crown': {
+      title: 'Crown Chakra (Sahasrara)',
+      description: 'Located at the top of the head, the Crown Chakra represents spiritual connection, enlightenment, and higher consciousness.',
+      affirmation: 'I am connected to the divine wisdom of the universe.'
+    },
+    'third-eye': {
+      title: 'Third Eye Chakra (Ajna)',
+      description: 'Located between the eyebrows, the Third Eye Chakra is associated with intuition, perception, and spiritual awareness.',
+      affirmation: 'I trust my inner wisdom and intuition.'
+    },
+    'throat': {
+      title: 'Throat Chakra (Vishuddha)',
+      description: 'Located at the throat, this chakra governs communication, self-expression, and speaking your truth.',
+      affirmation: 'I express myself clearly and speak my truth with confidence.'
+    },
+    'heart': {
+      title: 'Heart Chakra (Anahata)',
+      description: 'Located at the center of the chest, the Heart Chakra is the center of love, compassion, and harmony.',
+      affirmation: 'I am open to giving and receiving love unconditionally.'
+    },
+    'solar-plexus': {
+      title: 'Solar Plexus Chakra (Manipura)',
+      description: 'Located above the navel, the Solar Plexus Chakra relates to personal power, self-confidence, and transformation.',
+      affirmation: 'I am confident in my power to create the life I desire.'
+    },
+    'sacral': {
+      title: 'Sacral Chakra (Svadhisthana)',
+      description: 'Located below the navel, the Sacral Chakra governs creativity, pleasure, and emotional balance.',
+      affirmation: 'I embrace my creativity and honor my emotions.'
+    },
+    'root': {
+      title: 'Root Chakra (Muladhara)',
+      description: 'Located at the base of the spine, the Root Chakra is the foundation of physical and emotional security.',
+      affirmation: 'I am safe, secure, and grounded in the present moment.'
+    }
+  };
+  
+  // Update the display area with the selected chakra info
+  const displayArea = document.getElementById('chakra-info-display');
+  const info = chakraInfo[chakraId];
+  
+  if (info) {
+    displayArea.innerHTML = `
+      <h3>${info.title}</h3>
+      <p>${info.description}</p>
+      <div class="affirmation-box">
+        <p class="affirmation">${info.affirmation}</p>
+      </div>
+    `;
+    
+    // Remove active class from all chakra points
+    document.querySelectorAll('.chakra-point').forEach(point => {
+      point.classList.remove('active');
+    });
+    
+    // Find the correct chakra point to highlight
+    let chakraClass = '';
+    if (chakraId === 'third-eye') {
+      chakraClass = 'thirdeye-chakra';
+    } else if (chakraId === 'solar-plexus') {
+      chakraClass = 'solar-chakra';
+    } else {
+      chakraClass = `${chakraId}-chakra`;
+    }
+    
+    document.querySelector(`.${chakraClass}`).classList.add('active');
+  }
+}
 </script>
 </body>
 </html>
