@@ -1045,3 +1045,35 @@ body {
 #crown-button:hover .chakra-image {
   box-shadow: 0 0 15px rgba(128, 0, 128, 0.7);
 }
+/* Updated Chakra Images CSS */
+.chakra-image {
+  width: 40px;  /* Reduced from 60px */
+  height: 40px; /* Reduced from 60px */
+  border-radius: 50%;
+  margin-bottom: 5px;
+  transition: all 0.3s ease;
+  object-fit: contain; /* Ensures the image maintains its aspect ratio */
+}
+
+/* Make the entire button smaller */
+.chakra-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  padding: 5px; /* Reduced from 10px */
+  border-radius: 10px;
+  margin: 5px; /* Added to create some spacing */
+}
+
+/* Adjust the container to be more compact */
+.chakra-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 5px; /* Reduced from 15px */
+  margin-top: 10px;
+}
