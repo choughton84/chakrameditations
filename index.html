@@ -1,136 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chakra Healing Affirmation Journal</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chakra Meditations</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="container">
-    <h1>Chakra Healing Affirmation Journal</h1>
-    
-    <div class="chakra-section">
-      <div class="body-map-container">
-        <div class="chakra-button crown" onclick="showChakraInfo('crown')"></div>
-        <div class="chakra-button third-eye" onclick="showChakraInfo('third-eye')"></div>
-        <div class="chakra-button throat" onclick="showChakraInfo('throat')"></div>
-        <div class="chakra-button heart" onclick="showChakraInfo('heart')"></div>
-        <div class="chakra-button solar-plexus" onclick="showChakraInfo('solar-plexus')"></div>
-        <div class="chakra-button sacral" onclick="showChakraInfo('sacral')"></div>
-        <div class="chakra-button root" onclick="showChakraInfo('root')"></div>
-        
-        <!-- Individual info boxes for each chakra -->
-        <div class="chakra-info" id="crown-info">
-          <h2>Crown Chakra (Sahasrara)</h2>
-          <p>Located at the top of the head, represents spiritual connection and enlightenment.</p>
-          <div>
-            <h3>Affirmation:</h3>
-            <p>I am connected to divine wisdom and universal consciousness.</p>
-          </div>
-        </div>
-        
-        <div class="chakra-info" id="third-eye-info">
-          <h2>Third Eye Chakra (Ajna)</h2>
-          <p>Located between the eyebrows, represents intuition and perception.</p>
-          <div>
-            <h3>Affirmation:</h3>
-            <p>I trust my intuition and inner wisdom.</p>
-          </div>
-        </div>
-        
-        <div class="chakra-info" id="throat-info">
-          <h2>Throat Chakra (Vishuddha)</h2>
-          <p>Located at the throat, represents communication and self-expression.</p>
-          <div>
-            <h3>Affirmation:</h3>
-            <p>I express my truth clearly and confidently.</p>
-          </div>
-        </div>
-        
-        <div class="chakra-info" id="heart-info">
-          <h2>Heart Chakra (Anahata)</h2>
-          <p>Located at the center of the chest, represents love, compassion, and harmony.</p>
-          <div>
-            <h3>Affirmation:</h3>
-            <p>I give and receive love freely and unconditionally.</p>
-          </div>
-        </div>
-        
-        <div class="chakra-info" id="solar-plexus-info">
-          <h2>Solar Plexus Chakra (Manipura)</h2>
-          <p>Located above the navel, represents personal power and confidence.</p>
-          <div>
-            <h3>Affirmation:</h3>
-            <p>I am confident in my personal power and abilities.</p>
-          </div>
-        </div>
-        
-        <div class="chakra-info" id="sacral-info">
-          <h2>Sacral Chakra (Svadhisthana)</h2>
-          <p>Located below the navel, represents creativity and emotional balance.</p>
-          <div>
-            <h3>Affirmation:</h3>
-            <p>I embrace my creativity and honor my emotions.</p>
-          </div>
-        </div>
-        
-        <div class="chakra-info" id="root-info">
-          <h2>Root Chakra (Muladhara)</h2>
-          <p>Located at the base of the spine, represents stability and grounding.</p>
-          <div>
-            <h3>Affirmation:</h3>
-            <p>I am safe, secure, and grounded in the present moment.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    <div class="journal-section">
-      <h2>Journal Your Experience</h2>
-      <p>Reflect on your chakra meditation and write down your thoughts, feelings, and insights:</p>
-      <textarea placeholder="Write your reflections here..."></textarea>
-      <button onclick="saveJournal()">Save Entry</button>
-    </div>
-    
-    <div class="meditation-section">
-      <h2>Personal Meditation Guide</h2>
-      <p>While laying down, closing your eyes. Focus on your breathing and create an awareness within your body of where your awareness is. Bring your awareness to your crown if isn't there already. Become aware of what you are seeing in your 3rd eye. What are you wanting to express? Embracing the feeling that arises within you, begin to feel confident with your desires. Knowing you can pursue them with passion. Now ground this feeling within you as a true foundation al reality.</p>
-      
-      <h3>Chakra Meditation Steps:</h3>
-      <ol>
-        <li>CREATING AN AWARENESS</li>
-        <li>RECOGNIZING WHAT YOU ARE SEEING</li>
-        <li>EXPRESSING WHAT YOU ARE FEELING</li>
-        <li>EMBRACING THE FEELING AS YOUR OWN</li>
-        <li>FEELING CONFIDANT IN YOUR STRENGTH</li>
-        <li>STABILE WITHIN YOUR DESIRES/PASSION</li>
-        <li>KNOWING THIS IS GROUNDED IN REALITY</li>
-      </ol>
-    </div>
-  </div>
+    <header>
+        <h1>Chakra Healing Meditations</h1>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#chakras">Chakras</a></li>
+                <li><a href="#meditations">Meditations</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-  <script>
-  function showChakraInfo(chakra) {
-  // Hide all info boxes first
-  var allInfoBoxes = document.querySelectorAll('.chakra-info');
-  for (var i = 0; i < allInfoBoxes.length; i++) {
-    allInfoBoxes[i].style.display = 'none';
-  }
-  
-  // Show the selected chakra info
-  var selectedInfo = document.getElementById(chakra + '-info');
-  if (selectedInfo) {
-    selectedInfo.style.display = 'block';
-  } else {
-    console.error('Could not find info box with ID: ' + chakra + '-info');
-  }
-}
-    
-    function saveJournal() {
-      alert("Journal entry saved successfully!");
-      // In a real application, you would save this to localStorage or a database
-    }
-  </script>
+    <main>
+        <section id="about">
+            <h2>About Chakra Healing</h2>
+            <p>Welcome to a journey of spiritual healing and self-discovery through chakra meditation. This practice helps balance your energy centers for improved physical, emotional, and spiritual well-being.</p>
+        </section>
+
+        <section id="chakras" class="chakra-section">
+            <h2>The Seven Chakras</h2>
+            <p>Click on each chakra to learn more about its properties and healing affirmations.</p>
+            
+            <div class="body-map-container">
+                <div class="chakra-button crown" onclick="showChakraInfo('crown')"></div>
+                <div class="chakra-button third-eye" onclick="showChakraInfo('third-eye')"></div>
+                <div class="chakra-button throat" onclick="showChakraInfo('throat')"></div>
+                <div class="chakra-button heart" onclick="showChakraInfo('heart')"></div>
+                <div class="chakra-button solar-plexus" onclick="showChakraInfo('solar-plexus')"></div>
+                <div class="chakra-button sacral" onclick="showChakraInfo('sacral')"></div>
+                <div class="chakra-button root" onclick="showChakraInfo('root')"></div>
+            </div>
+            
+            <!-- Chakra info boxes - OUTSIDE the body-map-container -->
+            <div class="chakra-info" id="crown-info">
+                <h2>Crown Chakra (Sahasrara)</h2>
+                <p>Located at the top of the head, represents spiritual connection and enlightenment.</p>
+                <div>
+                    <h3>Affirmation:</h3>
+                    <p>I am connected to divine wisdom and universal consciousness.</p>
+                </div>
+            </div>
+            
+            <div class="chakra-info" id="third-eye-info">
+                <h2>Third Eye Chakra (Ajna)</h2>
+                <p>Located between the eyebrows, represents intuition and perception.</p>
+                <div>
+                    <h3>Affirmation:</h3>
+                    <p>I trust my intuition and inner wisdom.</p>
+                </div>
+            </div>
+            
+            <div class="chakra-info" id="throat-info">
+                <h2>Throat Chakra (Vishuddha)</h2>
+                <p>Located at the throat, represents communication and self-expression.</p>
+                <div>
+                    <h3>Affirmation:</h3>
+                    <p>I express myself clearly and speak my truth with confidence.</p>
+                </div>
+            </div>
+            
+            <div class="chakra-info" id="heart-info">
+                <h2>Heart Chakra (Anahata)</h2>
+                <p>Located at the center of the chest, represents love, compassion, and harmony.</p>
+                <div>
+                    <h3>Affirmation:</h3>
+                    <p>I am open to giving and receiving love. I live in balance and harmony.</p>
+                </div>
+            </div>
+            
+            <div class="chakra-info" id="solar-plexus-info">
+                <h2>Solar Plexus Chakra (Manipura)</h2>
+                <p>Located above the navel, represents personal power, confidence, and self-esteem.</p>
+                <div>
+                    <h3>Affirmation:</h3>
+                    <p>I am confident in my personal power. I have the strength to make my dreams reality.</p>
+                </div>
+            </div>
+            
+            <div class="chakra-info" id="sacral-info">
+                <h2>Sacral Chakra (Svadhisthana)</h2>
+                <p>Located below the navel, represents creativity, pleasure, and emotional balance.</p>
+                <div>
+                    <h3>Affirmation:</h3>
+                    <p>I embrace my creativity and honor my emotions. I allow pleasure and abundance into my life.</p>
+                </div>
+            </div>
+            
+            <div class="chakra-info" id="root-info">
+                <h2>Root Chakra (Muladhara)</h2>
+                <p>Located at the base of the spine, represents stability, security, and basic needs.</p>
+                <div>
+                    <h3>Affirmation:</h3>
+                    <p>I am safe and secure. I trust in the process of life to support my needs.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="meditations">
+            <h2>Guided Meditations</h2>
+            <p>Explore our collection of guided meditations designed to help you balance and heal each chakra.</p>
+            <!-- Meditation content here -->
+        </section>
+    </main>
+
+    <footer id="contact">
+        <p>Created by Cristina Houghton</p>
+        <p>Contact: your-email@example.com</p>
+    </footer>
+
+    <script>
+        function showChakraInfo(chakra) {
+            // First, hide all chakra info boxes
+            const allInfoBoxes = document.querySelectorAll('.chakra-info');
+            allInfoBoxes.forEach(box => {
+                box.style.display = 'none';
+            });
+            
+            // Then, show the selected chakra info box
+            const selectedInfo = document.getElementById(chakra + '-info');
+            if (selectedInfo) {
+                selectedInfo.style.display = 'block';
+            }
+        }
+    </script>
 </body>
 </html>
