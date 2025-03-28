@@ -52,7 +52,8 @@
             <!-- Meditation Containers -->
 <section id="meditation-sections">
     <!-- Root Chakra -->
-    <div id="root-meditation" class="meditation-container" style="display: none;">
+    <div id="root-meditation" <div id="root-meditation" class="meditation-container">
+" style="display: none;">
         <h3>Root Chakra Meditation</h3>
         <p>While laying down, closing your eyes. Focus on your breathing and create an awareness within your body of where your awareness is. Ground yourself in the present moment, feeling connected to the earth.</p>
         <!-- Add recording controls here -->
@@ -63,7 +64,8 @@
     </div>
     
     <!-- Sacral Chakra -->
-    <div id="sacral-meditation" class="meditation-container" style="display: none;">
+    <div id="sacral-meditation" <div id="sacral-meditation" class="meditation-container">
+" style="display: none;">
         <h3>Sacral Chakra Meditation</h3>
         <p>Bring your awareness to your sacral chakra. What are you wanting to express? Connect with your creativity and emotional flow.</p>
         <!-- Add recording controls here -->
@@ -74,7 +76,8 @@
     </div>
     
     <!-- Solar Plexus Chakra -->
-    <div id="solar-plexus-meditation" class="meditation-container" style="display: none;">
+    <div id="solar-plexus-meditation" <div id="solar-plexus-meditation" class="meditation-container">
+" style="display: none;">
         <h3>Solar Plexus Chakra Meditation</h3>
         <p>Embracing the feeling that arises within you, begin to feel confident with your desires. Feel your personal power growing stronger.</p>
         <div class="audio-controls">
@@ -84,7 +87,8 @@
     </div>
     
     <!-- Heart Chakra -->
-    <div id="heart-meditation" class="meditation-container" style="display: none;">
+    <div id="heart-meditation" <div id="heart-meditation" class="meditation-container">
+" style="display: none;">
         <h3>Heart Chakra Meditation</h3>
         <p>Focus on your heart center. Feel the love and compassion flowing through you, connecting you to all beings in oneness.</p>
         <div class="audio-controls">
@@ -94,7 +98,8 @@
     </div>
     
     <!-- Throat Chakra -->
-    <div id="throat-meditation" class="meditation-container" style="display: none;">
+    <div id="throat-meditation" <div id="throat-meditation" class="meditation-container">
+" style="display: none;">
         <h3>Throat Chakra Meditation</h3>
         <p>Bring awareness to your throat. What truth needs to be expressed? Allow your authentic voice to emerge.</p>
         <div class="audio-controls">
@@ -104,7 +109,8 @@
     </div>
     
     <!-- Third Eye Chakra -->
-    <div id="third-eye-meditation" class="meditation-container" style="display: none;">
+    <div id="third-eye-meditation" <div id="third-eye-meditation" class="meditation-container">
+" style="display: none;">
         <h3>Third Eye Chakra Meditation</h3>
         <p>Become aware of what you are seeing in your 3rd eye. Open yourself to intuition and spiritual insight.</p>
         <div class="audio-controls">
@@ -114,7 +120,8 @@
     </div>
     
     <!-- Crown Chakra -->
-    <div id="crown-meditation" class="meditation-container" style="display: none;">
+    <div id="crown-meditation" <div id="crown-meditation" class="meditation-container">
+" style="display: none;">
         <h3>Crown Chakra Meditation</h3>
         <p>Connect with your higher self. Feel the divine energy flowing through your crown, bringing enlightenment and spiritual connection.</p>
         <div class="audio-controls">
@@ -997,5 +1004,93 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 </script>
+    <!-- Your existing HTML content ends here -->
+    
+    <!-- Add this before the closing </body> tag -->
+    <div id="recordingContainer"></div>
+
+    <script>
+      // Function to show selected meditation
+      function showMeditation(chakraType) {
+        // Hide all meditation containers
+        const containers = document.querySelectorAll('.meditation-container');
+        containers.forEach(container => {
+          container.style.display = 'none';
+        });
+        
+        // Show the selected meditation container
+        const selectedContainer = document.getElementById(chakraType + '-meditation');
+        if (selectedContainer) {
+          selectedContainer.style.display = 'block';
+        }
+      }
+
+      // Audio recording variables
+      let mediaRecorder;
+      let audioChunks = [];
+      let audioBlob;
+      let audioUrl;
+      let audio;
+
+      // Set up recording functionality
+      document.getElementById('recordButton').addEventListener('click', function() {
+        if (this.textContent === 'Record Meditation') {
+          startRecording();
+        } else {
+          stopRecording();
+        }
+      });
+
+      async function startRecording() {
+        audioChunks = [];
+        try {
+          const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+          mediaRecorder = new MediaRecorder(stream);
+          
+          mediaRecorder.ondataavailable = (event) => {
+            audioChunks.push(event.data);
+          };
+          
+          mediaRecorder.onstop = () => {
+            audioBlob = new Blob(audioChunks, { type: 'audio/wav' });
+            audioUrl = URL.createObjectURL(audioBlob);
+            
+            // Create audio player
+            const audioPlayer = document.createElement('audio');
+            audioPlayer.controls = true;
+            audioPlayer.src = audioUrl;
+            
+            const recordingContainer = document.getElementById('recordingContainer');
+            recordingContainer.innerHTML = '';
+            recordingContainer.appendChild(audioPlayer);
+          };
+          
+          mediaRecorder.start();
+          document.getElementById('recordButton').textContent = 'Stop Recording';
+        } catch (err) {
+          console.error('Error accessing microphone:', err);
+          alert('Could not access microphone. Please check permissions.');
+        }
+      }
+
+      function stopRecording() {
+        if (mediaRecorder && mediaRecorder.state !== 'inactive') {
+          mediaRecorder.stop();
+          document.getElementById('recordButton').textContent = 'Record Meditation';
+        }
+      }
+
+      // Hide all meditation containers initially except the first one
+      document.addEventListener('DOMContentLoaded', function() {
+        const containers = document.querySelectorAll('.meditation-container');
+        containers.forEach((container, index) => {
+          if (index > 0) {
+            container.style.display = 'none';
+          }
+        });
+      });
+    </script>
+</body>
+</html>
 </body>
 </html>
