@@ -217,6 +217,9 @@
                     Crown
                 </button>
                 <button class="chakra-button" onclick="document.getElementById('journal-section').scrollIntoView({behavior: 'smooth'})">
+                    <button class="chakra-button" data-chakra="journal" onclick="document.getElementById('journal-section').scrollIntoView({behavior: 'smooth'})">
+    Journal
+</button>
     Journal
 </button>
             </div>
@@ -452,7 +455,57 @@
                 <p>While laying down, closing your eyes. Focus on your breathing and create an awareness within your body of where your awareness is. Bring your awareness to your crown if it isn't there already. Become aware of what you are seeing in your 3rd eye. What are you wanting to express? Embracing the feeling that arises within you, begin to feel confident with your desires. Knowing you can pursue them with passion. Now ground this feeling within you as a true foundational reality.</p>
             </div>
         </section>
-              <section id="journal-section">
+              <section id="journal-section"><section id="journal-section">
+    <h2>Chakra Healing Journal</h2>
+    
+    <div class="journal-form">
+        <div>
+            <label for="journal-date">Date:</label>
+            <input type="date" id="journal-date" name="journal-date">
+        </div>
+        
+        <div>
+            <label for="chakra-select">Select Chakra:</label>
+            <select id="chakra-select" name="chakra-select">
+                <option value="root">Root Chakra</option>
+                <option value="sacral">Sacral Chakra</option>
+                <option value="solar-plexus">Solar Plexus Chakra</option>
+                <option value="heart">Heart Chakra</option>
+                <option value="throat">Throat Chakra</option>
+                <option value="third-eye">Third Eye Chakra</option>
+                <option value="crown">Crown Chakra</option>
+            </select>
+        </div>
+        
+        <div>
+            <label for="affirmation">Daily Affirmation:</label>
+            <textarea id="affirmation" name="affirmation" placeholder="Write your affirmation here..."></textarea>
+        </div>
+        
+        <div>
+            <label for="journal-entry">Journal Entry:</label>
+            <textarea id="journal-entry" name="journal-entry" placeholder="Reflect on your chakra healing journey..."></textarea>
+        </div>
+        
+        <div>
+            <label for="meditation-notes">Meditation Notes:</label>
+            <textarea id="meditation-notes" name="meditation-notes" placeholder="Record insights from your meditation..."></textarea>
+        </div>
+        
+        <div class="journal-actions">
+            <button id="save-entry" class="journal-button save-button">Save Entry</button>
+            <button id="load-entries" class="journal-button load-button">View Previous Entries</button>
+        </div>
+    </div>
+    
+    <div id="entries-list" style="display: none; margin-top: 30px;">
+        <h3>Previous Entries</h3>
+        <select id="entry-select">
+            <option>Select an entry to view</option>
+        </select>
+        <div id="entry-display" style="margin-top: 20px;"></div>
+    </div>
+</section>
     <h2>Chakra Journal</h2>
     
     <div class="journal-container">
@@ -727,5 +780,119 @@ document.addEventListener('DOMContentLoaded', function() {
     updateEntryList();
 });
     </script>
+           document.addEventListener('DOMContentLoaded', function() {
+    // Elements
+    const chakraSelect = document.getElementById('chakra-select');
+    const affirmation = document.getElementById('affirmation');
+    const journalEntry = document.getElementById('journal-entry');
+    const meditationNotes = document.getElementById('meditation-notes');
+    const saveButton = document.getElementById('save-entry');
+    const loadButton = document.getElementById('load-entries');
+    const entriesList = document.getElementById('entries-list');
+    const entrySelect = document.getElementById('entry-select');
+    const entryDisplay = document.getElementById('entry-display');
+    const journalDate = document.getElementById('journal-date');
+    
+    // Set default date to today
+    const today = new Date().toISOString().split('T')[0];
+    journalDate.value = today;
+    
+    // Change text color based on selected chakra
+    chakraSelect.addEventListener('change', function() {
+        const chakra = this.value;
+        // Remove all previous color classes
+        affirmation.classList.remove('root-text', 'sacral-text', 'solar-plexus-text', 
+                                   'heart-text', 'throat-text', 'third-eye-text', 'crown-text');
+        journalEntry.classList.remove('root-text', 'sacral-text', 'solar-plexus-text', 
+                                     'heart-text', 'throat-text', 'third-eye-text', 'crown-text');
+        meditationNotes.classList.remove('root-text', 'sacral-text', 'solar-plexus-text', 
+                                        'heart-text', 'throat-text', 'third-eye-text', 'crown-text');
+        
+        // Add the appropriate color class
+        affirmation.classList.add(`${chakra}-text`);
+        journalEntry.classList.add(`${chakra}-text`);
+        meditationNotes.classList.add(`${chakra}-text`);
+    });
+    
+    // Save entry
+    saveButton.addEventListener('click', function() {
+        const entry = {
+            date: journalDate.value,
+            chakra: chakraSelect.value,
+            affirmation: affirmation.value,
+            journalEntry: journalEntry.value,
+            meditationNotes: meditationNotes.value,
+            timestamp: new Date().getTime()
+        };
+        
+        // Get existing entries or initialize empty array
+        let entries = JSON.parse(localStorage.getItem('chakraJournalEntries')) || [];
+        entries.push(entry);
+        
+        // Save to localStorage
+        localStorage.setItem('chakraJournalEntries', JSON.stringify(entries));
+        
+        alert('Journal entry saved successfully!');
+    });
+    
+    // Load entries
+    loadButton.addEventListener('click', function() {
+        entriesList.style.display = 'block';
+        
+        // Get entries from localStorage
+        const entries = JSON.parse(localStorage.getItem('chakraJournalEntries')) || [];
+        
+        // Clear previous options
+        entrySelect.innerHTML = '<option>Select an entry to view</option>';
+        
+        // Add entries to select dropdown
+        entries.forEach((entry, index) => {
+            const option = document.createElement('option');
+            option.value = index;
+            option.textContent = `${entry.date} - ${entry.chakra.charAt(0).toUpperCase() + entry.chakra.slice(1)} Chakra`;
+            entrySelect.appendChild(option);
+        });
+    });
+    
+    // Display selected entry
+    entrySelect.addEventListener('change', function() {
+        if (this.value === 'Select an entry to view') {
+            entryDisplay.innerHTML = '';
+            return;
+        }
+        
+        const entries = JSON.parse(localStorage.getItem('chakraJournalEntries')) || [];
+        const selectedEntry = entries[this.value];
+        
+        entryDisplay.innerHTML = `
+            <div class="${selectedEntry.chakra}-text">
+                <h4>Date: ${selectedEntry.date}</h4>
+                <h4>Chakra: ${selectedEntry.chakra.charAt(0).toUpperCase() + selectedEntry.chakra.slice(1)}</h4>
+                <h4>Affirmation:</h4>
+                <p>${selectedEntry.affirmation}</p>
+                <h4>Journal Entry:</h4>
+                <p>${selectedEntry.journalEntry}</p>
+                <h4>Meditation Notes:</h4>
+                <p>${selectedEntry.meditationNotes}</p>
+            </div>
+        `;
+    });
+    
+    // Connect chakra navigation buttons to journal
+    const chakraButtons = document.querySelectorAll('.chakra-button[data-chakra]');
+    chakraButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const chakraType = this.getAttribute('data-chakra');
+            if (chakraType !== 'journal') {
+                // Set the journal's chakra select to match the clicked chakra
+                chakraSelect.value = chakraType;
+                // Trigger the change event to update text colors
+                chakraSelect.dispatchEvent(new Event('change'));
+                // Scroll to journal section
+                document.getElementById('journal-section').scrollIntoView({behavior: 'smooth'});
+            }
+        });
+    });
+});         
 </body>
 </html>
