@@ -168,6 +168,55 @@
     }
 }
     </div>
+        // Audio recording functionality
+document.addEventListener('DOMContentLoaded', function() {
+    // Get all record buttons
+    const recordButtons = document.querySelectorAll('[id$="-record"]');
+    
+    // For each record button
+    recordButtons.forEach(button => {
+        const chakraType = button.id.replace('-record', '');
+        const audioPlayer = document.getElementById(chakraType + '-audio-player');
+        let mediaRecorder;
+        let audioChunks = [];
+        let recording = false;
+        
+        button.addEventListener('click', function() {
+            if (!recording) {
+                // Start recording
+                navigator.mediaDevices.getUserMedia({ audio: true })
+                    .then(stream => {
+                        mediaRecorder = new MediaRecorder(stream);
+                        mediaRecorder.start();
+                        
+                        mediaRecorder.addEventListener('dataavailable', event => {
+                            audioChunks.push(event.data);
+                        });
+                        
+                        mediaRecorder.addEventListener('stop', () => {
+                            const audioBlob = new Blob(audioChunks, { type: 'audio/mpeg' });
+                            const audioUrl = URL.createObjectURL(audioBlob);
+                            audioPlayer.src = audioUrl;
+                            audioPlayer.style.display = 'block';
+                            audioChunks = [];
+                        });
+                        
+                        button.textContent = 'Stop Recording';
+                        recording = true;
+                    })
+                    .catch(error => {
+                        console.error('Error accessing microphone:', error);
+                        alert('Error accessing microphone. Please ensure you have granted permission.');
+                    });
+            } else {
+                // Stop recording
+                mediaRecorder.stop();
+                button.textContent = 'Record Meditation';
+                recording = false;
+            }
+        });
+    });
+});
     
     <!-- Heart Chakra -->
     <div id="heart-meditation" class="meditation-container" style="display: none;">
