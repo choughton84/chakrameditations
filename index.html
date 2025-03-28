@@ -981,6 +981,21 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 </script>
-    </script>
+    </script> 
+    <script>
+  function showMeditation(chakraType) {
+    // Hide all meditation containers
+    const containers = document.querySelectorAll('.meditation-container');
+    containers.forEach(container => {
+      container.style.display = 'none';
+    });
+    
+    // Show the selected meditation container
+    const selectedContainer = document.getElementById(chakraType + '-meditation');
+    if (selectedContainer) {
+      selectedContainer.style.display = 'block';
+    }
+  }
+</script>
 </body>
 </html>
