@@ -154,7 +154,19 @@
         <div class="audio-controls">
             <button id="solar-plexus-record" class="meditation-button">Record Meditation</button>
             <audio id="solar-plexus-audio-player" controls style="display:none; margin-top: 10px;"></audio>
-        </div>
+        </div> function showMeditation(chakraType) {
+    // Hide all meditation containers first
+    const containers = document.querySelectorAll('.meditation-container');
+    containers.forEach(container => {
+        container.style.display = 'none';
+    });
+    
+    // Show the selected meditation container
+    const selectedContainer = document.getElementById(chakraType + '-meditation');
+    if (selectedContainer) {
+        selectedContainer.style.display = 'block';
+    }
+}
     </div>
     
     <!-- Heart Chakra -->
