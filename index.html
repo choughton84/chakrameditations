@@ -3,409 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chakra Healing Affirmations</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Chakra Healing Affirmation Journal</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
+    <div class="container">
         <h1>Chakra Healing Affirmation Journal</h1>
-        <p class="subtitle">A guide to spiritual alignment and manifestation</p>
-    </header>
-    
-    <main>
-        <section class="meditation">
-            <h2>Personal Meditation Guide</h2>
-            <div class="meditation-content">
-                <p>While laying down, closing your eyes. Focus on your breathing and create an 
-                awareness within your body of where your awareness is. Bring your 
-                awareness to your brain if isn't there already. Become aware of what you are
-                seeing in your 3rd eye. What are you wanting to express? Embracing the 
-                feeling that arises within you, begin to feel confident with your desires. 
-                Knowing you can pursue them with passion. Now ground this feeling within 
-                you as a true foundation of reality.</p>
-            </div>
-        </section>
         
-        <section class="chakra-steps">
-            <h2>Chakra Awareness Journey</h2>
-            
-            <div class="chakra" id="crown">
-                <h3>Creating an Awareness</h3>
-                <p class="chakra-description">Connect with your crown chakra to create spiritual awareness and open yourself to divine guidance.</p>
-                <div class="affirmation-box">
-                    <p class="affirmation">I am connected to the divine wisdom of the universe.</p>
-                </div>
-            </div>
-            
-            <div class="chakra" id="third-eye">
-                <h3>Recognizing What You Are Seeing</h3>
-                <p class="chakra-description">Activate your third eye chakra to recognize intuitive visions and insights.</p>
-                <div class="affirmation-box">
-                    <p class="affirmation">I trust what I see with my inner vision.</p>
-                </div>
-            </div>
-            
-            <div class="chakra" id="throat">
-                <h3>Expressing What You Are Feeling</h3>
-                <p class="chakra-description">Open your throat chakra to authentically express your inner truth.</p>
-                <div class="affirmation-box">
-                    <p class="affirmation">I express my feelings with clarity and confidence.</p>
-                </div>
-            </div>
-            
-            <div class="chakra" id="heart">
-                <h3>Embracing the Feeling as Your Own</h3>
-                <p class="chakra-description">Center in your heart chakra to fully embrace and integrate your emotions.</p>
-                <div class="affirmation-box">
-                    <p class="affirmation">I lovingly embrace all my feelings as part of my authentic self.</p>
-                </div>
-            </div>
-            
-            <div class="chakra" id="solar-plexus">
-                <h3>Feeling Confident in Your Strength</h3>
-                <p class="chakra-description">Empower your solar plexus chakra to build confidence and personal power.</p>
-                <div class="affirmation-box">
-                    <p class="affirmation">I am confident in my strength and abilities.</p>
-                </div>
-            </div>
-            
-            <div class="chakra" id="sacral">
-                <h3>Stable Within Your Desires/Passion</h3>
-                <p class="chakra-description">Balance your sacral chakra to stabilize your creative energy and passion.</p>
-                <div class="affirmation-box">
-                    <p class="affirmation">My desires flow with purpose and passion.</p>
-                </div>
-            </div>
-            
-            <div class="chakra" id="root">
-                <h3>Knowing This is Grounded in Reality</h3>
-                <p class="chakra-description">Strengthen your root chakra to ground your spiritual insights into physical reality.</p>
-                <div class="affirmation-box">
-                    <p class="affirmation">I am grounded in reality and manifest my spiritual insights.</p>
-                </div>
-            </div>
-        </section>
-    
-<!-- Chakra Visualization Section -->
-<div class="chakra-section">
-  <h2>Interactive Chakra Guide</h2>
-  <div class="chakra-container">
-    <div class="chakra-visualization">
-      <img src="images/body-map.png" alt="Body Map" class="body-silhouette">
-      
-      <!-- Crown Chakra -->
-      <div class="chakra-point crown-chakra" onclick="showChakraInfo('crown')">
-        <div class="chakra-circle violet"></div>
-      </div>
-      
-      <!-- Third Eye Chakra -->
-      <div class="chakra-point thirdeye-chakra" onclick="showChakraInfo('third-eye')">
-        <div class="chakra-circle indigo"></div>
-      </div>
-      
-      <!-- Throat Chakra -->
-      <div class="chakra-point throat-chakra" onclick="showChakraInfo('throat')">
-        <div class="chakra-circle blue"></div>
-      </div>
-      
-      <!-- Heart Chakra -->
-      <div class="chakra-point heart-chakra" onclick="showChakraInfo('heart')">
-        <div class="chakra-circle green"></div>
-      </div>
-      
-      <!-- Solar Plexus Chakra -->
-      <div class="chakra-point solar-chakra" onclick="showChakraInfo('solar-plexus')">
-        <div class="chakra-circle yellow"></div>
-      </div>
-      
-      <!-- Sacral Chakra -->
-      <div class="chakra-point sacral-chakra" onclick="showChakraInfo('sacral')">
-        <div class="chakra-circle orange"></div>
-      </div>
-      
-      <!-- Root Chakra -->
-      <div class="chakra-point root-chakra" onclick="showChakraInfo('root')">
-        <div class="chakra-circle red"></div>
-      </div>
+        <div class="body-map-container">
+            <img src="body-map.jpg" alt="Body Map" class="body-map">
+            <button class="chakra-button crown" onclick="showChakraInfo('crown')"></button>
+            <button class="chakra-button third-eye" onclick="showChakraInfo('third-eye')"></button>
+            <button class="chakra-button throat" onclick="showChakraInfo('throat')"></button>
+            <button class="chakra-button heart" onclick="showChakraInfo('heart')"></button>
+            <button class="chakra-button solar-plexus" onclick="showChakraInfo('solar-plexus')"></button>
+            <button class="chakra-button sacral" onclick="showChakraInfo('sacral')"></button>
+            <button class="chakra-button root" onclick="showChakraInfo('root')"></button>
+        </div>
+        
+        <div id="chakra-info-display" class="chakra-info" style="display: none;">
+            <h2 id="chakra-title"></h2>
+            <p id="chakra-description"></p>
+            <p id="chakra-affirmation"><strong>Affirmation: </strong><span id="affirmation-text"></span></p>
+        </div>
     </div>
-    
-    <div id="chakra-info-display">
-      <h3>Click on a chakra point to learn more</h3>
-      <p>Explore each chakra to discover its meaning and affirmations.</p>
-    </div>
-  </div>
-</div>
-        <section class="manifestation">
-            <h2>Manifestation</h2>
-            <p>As you complete this chakra journey, you align your entire energy system for powerful manifestation. Your visions become reality when all chakras work in harmony.</p>
-        </section>
-        <!-- Meditation Section -->
-<section class="meditation">
-  <h2>Personal Meditation Guide</h2>
-  <p>
-    While laying down, closing your eyes. Focus on your breathing and create an 
-    awareness within your body of where your awareness is. Bring your 
-    awareness to your brain if isn't there already. Become aware of what you are
-    seeing in your 3rd eye. What are you wanting to express? Embracing the 
-    feeling that arises within you, begin to feel confident with your desires. 
-    Knowing you can pursue them with passion. Now ground this feeling within 
-    you as a true foundation al reality.
-  </p>
-  
-  <!-- Timer Feature -->
-  <div class="timer-container">
-    <h3>Meditation Timer</h3>
-    <p>Set meditation timer: <span id="minutes">5</span> minutes</p>
-    <div class="timer-controls">
-    
-  <button onclick="adjustTime(-1)">-</button>
-  <button onclick="startTimer()">Start</button>
-  <button onclick="stopTimer()">Reset</button>
-  <button onclick="adjustTime(1)">+</button>
-</div>
-    </div>
-    <p id="timer-display"></p>
-  </div>
-  
-  <!-- Recording Feature -->
-  <div class="recording-section">
-    <h3>Record Your Meditation Experience</h3>
-    <p>Use this tool to record your thoughts after meditation:</p>
-    
-    <div class="controls">
-      <button id="recordButton">Start Recording</button>
-      <button id="stopButton" disabled>Stop Recording</button>
-      <button id="playButton" disabled>Play Recording</button>
-    </div>
-    
-    <div class="recording-status">
-      <p id="recordingStatus">Not recording</p>
-      <div id="recordingTimer"></div>
-    </div>
-    
-    <audio id="recordedAudio" controls style="display:none;"></audio>
-  </div>
-</section>
-        <!-- Timer Script -->
-<script>
-  let meditationMinutes = 5;
-  let timerInterval;
-  
-  function adjustTime(change) {
-    meditationMinutes = Math.max(1, meditationMinutes + change);
-    document.getElementById('minutes').textContent = meditationMinutes;
-  }
-  
-  function startTimer() {
-    clearInterval(timerInterval);
-    let seconds = meditationMinutes * 60;
-    
-    document.getElementById('timer-display').textContent = 
-      `Meditation in progress: ${Math.floor(seconds/60)}:${(seconds%60).toString().padStart(2,'0')}`;
-    
-    timerInterval = setInterval(() => {
-      seconds--;
-      if (seconds <= 0) {
-        clearInterval(timerInterval);
-        document.getElementById('timer-display').textContent = "Meditation complete";
-        alert("Your meditation is complete");
-        return;
-      }
-      document.getElementById('timer-display').textContent = 
-        `Meditation in progress: ${Math.floor(seconds/60)}:${(seconds%60).toString().padStart(2,'0')}`;
-    }, 1000);
-  }
-</script>
 
-<!-- Recording Script -->
-<script>
-  // Audio recording functionality
-  let mediaRecorder;
-  let audioChunks = [];
-  let recordingTimer;
-  let seconds = 0;
-  
-  document.getElementById('recordButton').addEventListener('click', async () => {
-    audioChunks = [];
-    
-    try {
-      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-      mediaRecorder = new MediaRecorder(stream);
-      
-      mediaRecorder.ondataavailable = (event) => {
-        audioChunks.push(event.data);
-      };
-      
-      mediaRecorder.onstop = () => {
-        const audioBlob = new Blob(audioChunks, { type: 'audio/mp3' });
-        const audioUrl = URL.createObjectURL(audioBlob);
-        const audio = document.getElementById('recordedAudio');
-        audio.src = audioUrl;
-        audio.style.display = 'block';
-      };
-      
-      // Start recording
-      mediaRecorder.start();
-      document.getElementById('recordingStatus').textContent = "Recording...";
-      document.getElementById('recordButton').disabled = true;
-      document.getElementById('stopButton').disabled = false;
-      document.getElementById('playButton').disabled = true;
-      
-      // Start timer
-      seconds = 0;
-      clearInterval(recordingTimer);
-      recordingTimer = setInterval(() => {
-        seconds++;
-        const minutes = Math.floor(seconds / 60);
-        const remainingSeconds = seconds % 60;
-        document.getElementById('recordingTimer').textContent = 
-          `${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
-      }, 1000);
-        function stopTimer() {
-  clearInterval(timerInterval);
-  document.getElementById('timer-display').textContent = "";
-  document.getElementById('minutes').textContent = meditationMinutes;
-}
-      
-    } catch (err) {
-      console.error('Error accessing microphone:', err);
-      alert('Could not access your microphone. Please check permissions.');
-    }
-  });
-  
-  document.getElementById('stopButton').addEventListener('click', () => {
-    if (mediaRecorder && mediaRecorder.state !== 'inactive') {
-      mediaRecorder.stop();
-      clearInterval(recordingTimer);
-      document.getElementById('recordingStatus').textContent = "Recording stopped";
-      document.getElementById('recordButton').disabled = false;
-      document.getElementById('stopButton').disabled = true;
-      document.getElementById('playButton').disabled = false;
-    }
-  });
-  
-  document.getElementById('playButton').addEventListener('click', () => {
-    const audio = document.getElementById('recordedAudio');
-    audio.play();
-  });
-</script>
-    </main>
-    
-    <footer>
-        <p>Created with love by Cristina Houghton</p>
-    </footer>
     <script>
-    function showChakraInfo(chakraId) {
-        // Get the chakra element from the existing sections
-        const chakraElement = document.getElementById(chakraId);
-        
-        if (chakraElement) {
-            // Get the content from the existing chakra section
-            const title = chakraElement.querySelector('h3').textContent;
-            const description = chakraElement.querySelector('.chakra-description').textContent;
-            const affirmation = chakraElement.querySelector('.affirmation').textContent;
+        function showChakraInfo(chakra) {
+            const infoDisplay = document.getElementById('chakra-info-display');
+            const chakraTitle = document.getElementById('chakra-title');
+            const chakraDescription = document.getElementById('chakra-description');
+            const affirmationText = document.getElementById('affirmation-text');
             
-            // Update the display area
-            const displayArea = document.getElementById('chakra-info-display');
-            displayArea.innerHTML = `
-                <h3>${title}</h3>
-                <p>${description}</p>
-                <div class="affirmation-box">
-                    <p class="affirmation">${affirmation}</p>
-                </div>
-            `;
+            // Show the info display
+            infoDisplay.style.display = 'block';
             
-            // Highlight the active chakra
-            document.querySelectorAll('.chakra-point').forEach(point => {
-                point.classList.remove('active');
-            });
-            
-            // Find the correct chakra point to highlight
-            let chakraClass = '';
-            if (chakraId === 'third-eye') {
-                chakraClass = 'thirdeye-chakra';
-            } else if (chakraId === 'solar-plexus') {
-                chakraClass = 'solar-chakra';
-            } else {
-                chakraClass = `${chakraId}-chakra`;
+            // Set content based on chakra
+            switch(chakra) {
+                case 'crown':
+                    chakraTitle.textContent = 'Crown Chakra (Sahasrara)';
+                    chakraDescription.textContent = 'Located at the top of the head, the Crown Chakra represents spiritual connection, higher consciousness, and enlightenment.';
+                    affirmationText.textContent = 'I am connected to divine wisdom. I trust my intuition and higher guidance.';
+                    break;
+                case 'third-eye':
+                    chakraTitle.textContent = 'Third Eye Chakra (Ajna)';
+                    chakraDescription.textContent = 'Located between the eyebrows, the Third Eye Chakra represents intuition, perception, and spiritual awareness.';
+                    affirmationText.textContent = 'I trust my inner vision and intuition. I see clearly in all situations.';
+                    break;
+                case 'throat':
+                    chakraTitle.textContent = 'Throat Chakra (Vishuddha)';
+                    chakraDescription.textContent = 'Located at the throat, this chakra represents communication, self-expression, and speaking your truth.';
+                    affirmationText.textContent = 'I express myself clearly and confidently. My voice matters.';
+                    break;
+                case 'heart':
+                    chakraTitle.textContent = 'Heart Chakra (Anahata)';
+                    chakraDescription.textContent = 'Located at the center of the chest, the Heart Chakra represents love, compassion, and emotional balance.';
+                    affirmationText.textContent = 'I am open to giving and receiving love. I am worthy of love and compassion.';
+                    break;
+                case 'solar-plexus':
+                    chakraTitle.textContent = 'Solar Plexus Chakra (Manipura)';
+                    chakraDescription.textContent = 'Located above the navel, the Solar Plexus Chakra represents personal power, confidence, and self-esteem.';
+                    affirmationText.textContent = 'I am confident in my abilities. I have the power to create change in my life.';
+                    break;
+                case 'sacral':
+                    chakraTitle.textContent = 'Sacral Chakra (Svadhisthana)';
+                    chakraDescription.textContent = 'Located below the navel, the Sacral Chakra represents creativity, passion, and emotional well-being.';
+                    affirmationText.textContent = 'I embrace my passions and desires. I allow creativity to flow through me.';
+                    break;
+                case 'root':
+                    chakraTitle.textContent = 'Root Chakra (Muladhara)';
+                    chakraDescription.textContent = 'Located at the base of the spine, the Root Chakra represents stability, security, and grounding.';
+                    affirmationText.textContent = 'I am safe and secure. I am grounded and connected to the earth.';
+                    break;
             }
             
-            document.querySelector(`.${chakraClass}`).classList.add('active');
+            // Scroll to the info display
+            infoDisplay.scrollIntoView({ behavior: 'smooth' });
         }
-    }
-</script>
-    <script>
-function showChakraInfo(chakraId) {
-  // Define chakra information
-  const chakraInfo = {
-    'crown': {
-      title: 'Crown Chakra (Sahasrara)',
-      description: 'Located at the top of the head, the Crown Chakra represents spiritual connection, enlightenment, and higher consciousness.',
-      affirmation: 'I am connected to the divine wisdom of the universe.'
-    },
-    'third-eye': {
-      title: 'Third Eye Chakra (Ajna)',
-      description: 'Located between the eyebrows, the Third Eye Chakra is associated with intuition, perception, and spiritual awareness.',
-      affirmation: 'I trust my inner wisdom and intuition.'
-    },
-    'throat': {
-      title: 'Throat Chakra (Vishuddha)',
-      description: 'Located at the throat, this chakra governs communication, self-expression, and speaking your truth.',
-      affirmation: 'I express myself clearly and speak my truth with confidence.'
-    },
-    'heart': {
-      title: 'Heart Chakra (Anahata)',
-      description: 'Located at the center of the chest, the Heart Chakra is the center of love, compassion, and harmony.',
-      affirmation: 'I am open to giving and receiving love unconditionally.'
-    },
-    'solar-plexus': {
-      title: 'Solar Plexus Chakra (Manipura)',
-      description: 'Located above the navel, the Solar Plexus Chakra relates to personal power, self-confidence, and transformation.',
-      affirmation: 'I am confident in my power to create the life I desire.'
-    },
-    'sacral': {
-      title: 'Sacral Chakra (Svadhisthana)',
-      description: 'Located below the navel, the Sacral Chakra governs creativity, pleasure, and emotional balance.',
-      affirmation: 'I embrace my creativity and honor my emotions.'
-    },
-    'root': {
-      title: 'Root Chakra (Muladhara)',
-      description: 'Located at the base of the spine, the Root Chakra is the foundation of physical and emotional security.',
-      affirmation: 'I am safe, secure, and grounded in the present moment.'
-    }
-  };
-  
-  // Update the display area with the selected chakra info
-  const displayArea = document.getElementById('chakra-info-display');
-  const info = chakraInfo[chakraId];
-  
-  if (info) {
-    displayArea.innerHTML = `
-      <h3>${info.title}</h3>
-      <p>${info.description}</p>
-      <div class="affirmation-box">
-        <p class="affirmation">${info.affirmation}</p>
-      </div>
-    `;
-    
-    // Remove active class from all chakra points
-    document.querySelectorAll('.chakra-point').forEach(point => {
-      point.classList.remove('active');
-    });
-    
-    // Find the correct chakra point to highlight
-    let chakraClass = '';
-    if (chakraId === 'third-eye') {
-      chakraClass = 'thirdeye-chakra';
-    } else if (chakraId === 'solar-plexus') {
-      chakraClass = 'solar-chakra';
-    } else {
-      chakraClass = `${chakraId}-chakra`;
-    }
-    
-    document.querySelector(`.${chakraClass}`).classList.add('active');
-  }
-}
-</script>
+    </script>
 </body>
 </html>
