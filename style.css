@@ -185,5 +185,83 @@ h1 {
   .chakra-button.solar-plexus { top: 132px; }
   .chakra-button.sacral { top: 164px; }
   .chakra-button.root { top: 196px; }
+}/* Update body-map-container to allow space for info */
+.body-map-container {
+  position: relative;
+  width: 250px;
+  height: 400px;
+  margin: 0 auto;
+  margin-bottom: 30px;
+  background: url('images/body-map.png') no-repeat center;
+  background-size: contain;
+  float: left; /* Add this to allow content to flow next to it */
+  margin-right: 20px; /* Add space between map and info */
+}
+
+/* Create a new container for the whole chakra section */
+.chakra-section {
+  overflow: hidden; /* Clear the float */
+  margin-bottom: 30px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+/* Update chakra-info to position it next to the map */
+.chakra-info {
+  background-color: white;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+  width: 300px; /* Set a fixed width */
+  text-align: left;
+  display: none; /* Hidden by default */
+  position: absolute;
+  left: 280px; /* Position to the right of body map */
+  transition: all 0.3s ease;
+}
+
+/* Position each chakra's info box at the right height */
+#crown-info { top: 30px; }
+#third-eye-info { top: 55px; }
+#throat-info { top: 85px; }
+#heart-info { top: 125px; }
+#solar-plexus-info { top: 165px; }
+#sacral-info { top: 205px; }
+#root-info { top: 245px; }
+
+/* Add a pointer to the info box */
+.chakra-info:before {
+  content: '';
+  position: absolute;
+  left: -10px;
+  top: 15px;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-right: 10px solid white;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .chakra-section {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .body-map-container {
+    float: none;
+    margin-right: 0;
+  }
+  
+  .chakra-info {
+    position: static;
+    width: 100%;
+    margin-top: 10px;
+  }
+  
+  .chakra-info:before {
+    display: none;
+  }
 }
 
