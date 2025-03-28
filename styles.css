@@ -1077,3 +1077,19 @@ body {
   gap: 5px; /* Reduced from 15px */
   margin-top: 10px;
 }
+/* Emergency fix for oversized chakra images */
+.chakra-image {
+  width: 25px !important;
+  height: 25px !important;
+  max-width: 25px !important;
+  max-height: 25px !important;
+}
+
+.chakra-button {
+  padding: 3px !important;
+  margin: 2px !important;
+}
+
+.chakra-name {
+  font-size: 10px !important;
+}
